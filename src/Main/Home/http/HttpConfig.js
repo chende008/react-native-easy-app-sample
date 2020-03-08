@@ -26,7 +26,6 @@ export default class HttpConfig {
                 }
             })
             .initParseDataFunc((result, request, callback) => {
-                DebugManager.httpLogs(request, result);//调试工具记录日志
                 let {success, json, message, status} = result;
                 if (status === 401) {//Token过期
                     showToast('token过期，请重新登录');

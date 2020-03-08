@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         left: 0,
         width: 45,
         height: '100%',
-        paddingLeft: 12,
+        paddingLeft: 5,
         position: 'absolute',
     },
     rightImage: {
