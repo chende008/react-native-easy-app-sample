@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {BackHandler} from 'react-native';
+import {BackHandler, SafeAreaView} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import {NavigationBar} from '../Common/widgets/WidgetNavigation';
 import {RNItem} from '../Common/widgets/WidgetDefault';
@@ -17,13 +17,13 @@ export default class MainController extends PureComponent {
     }
 
     render() {
-        return <>
+        return <SafeAreaView>
             <NavigationBar title='RNDemo' hideBack/>
             <RNItem text='Http请求' onPress={() => Actions.http()}/>
             <RNItem text='数据存储' onPress={() => Actions.storage()}/>
             <RNItem text='基础控件' onPress={() => Actions.widget()}/>
             <RNItem text='刷新列表' onPress={() => Actions.refreshList()}/>
-        </>;
+        </SafeAreaView>;
     }
 
     componentDidMount(): void {

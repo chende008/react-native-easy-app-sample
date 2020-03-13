@@ -1,13 +1,12 @@
 import React, {PureComponent} from 'react';
 
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, SafeAreaView} from 'react-native';
 
 import {Colors, CommonStyles, Const} from '../../Common/storage/Const';
 import {RFHttp, RFImage, RFlatList, RFText, RFView} from 'react-native-fast-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {Api} from '../http/Api';
 import {showToast} from '../../Common/widgets/Loading';
-import {ImageRes} from "react-native-fast-app/lib/const/ImageRes";
 
 const headerText = '分页列表支持：无网络，加载中，无数据，加载错误，加载更多等一系列状态展示';
 
@@ -21,7 +20,7 @@ export default class RefreshController extends PureComponent {
 
     render() {
         let {dataList} = this.state;
-        return <View style={CommonStyles.container}>
+        return <SafeAreaView style={CommonStyles.container}>
             <NavigationBar title='RefreshList组件'/>
             <RFlatList data={dataList}
                        onRefresh={() => this.queryDataList(true)}
@@ -29,7 +28,7 @@ export default class RefreshController extends PureComponent {
                        ListHeaderComponent={() => <RFText style={styles.header} text={headerText}/>}
                        ref={refreshList => this.refreshList = refreshList}
                        renderItem={({item, index}) => this.renderItem(item, index)}/>
-        </View>;
+        </SafeAreaView>;
     }
 
     componentDidMount() {

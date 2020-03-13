@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, SafeAreaView} from 'react-native';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {RFHttp, RFText, RFView} from 'react-native-fast-app';
 import {RNItem} from '../../Common/widgets/WidgetDefault';
@@ -21,16 +21,15 @@ export default class HttpController extends PureComponent {
 
     render() {
         let {content} = this.state;
-        return <RFView style={CommonStyles.container}>
+        return <SafeAreaView style={CommonStyles.container}>
             <NavigationBar title='请求示例'/>
             <RNItem text='获取图片列表：标准的json' onPress={() => this.animalImageList()}/>
             <RNItem text='同步请求成员列表：标准的json' onPress={() => this.queryMemberList()}/>
-            <RNItem text='号码归属地：【非】标准json' onPress={() => this.getPhoneAddress()}/>
             <RNItem text='省份、城市记录数量：返回 XML' onPress={() => this.getCityAmount()}/>
             <ScrollView>
                 <RFText style={{fontSize: 12, color: Colors.text_lighter, padding: 10}} text={content}/>
             </ScrollView>
-        </RFView>;
+        </SafeAreaView>;
     }
 
     animalImageList = () => {//返回标准的json的http请求
@@ -64,18 +63,6 @@ export default class HttpController extends PureComponent {
         })
          */
 
-    };
-
-    getPhoneAddress = () => {//返回非标准的json的http请求
-        RFHttp().url(Api.queryMobileAddress)
-            .pureText().get((success, data, msg, code) => {
-            if (success) {
-                showToast('请求成功');
-                this.setState({content: data});
-            } else {
-                showToast(msg);
-            }
-        });
     };
 
     getCityAmount = () => {//查询各城市Mobile服务数量
