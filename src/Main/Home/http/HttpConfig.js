@@ -1,5 +1,5 @@
 import React from 'react';
-import {RNStorage} from '../../Common/storage/AppStorage';
+import {RNData, RNStorage} from '../../Common/storage/AppStorage';
 import {RFApi, RFApiConst, RFHttpConfig} from 'react-native-fast-app';
 import {isEmpty, selfOr} from '../../Common/utils/Utils';
 import {showToast} from '../../Common/widgets/Loading';
@@ -63,9 +63,20 @@ export default class HttpConfig {
                 if (isEmpty(RNStorage.refreshToken) || isEmpty(RNStorage.customerId)) {
                     showToast('Token过期，退出登录');
                 }
-                await AuthToken.getAccessToken().then(() => {//获取到新Token后，retry失败的接口
-                    request.resendRequest(request, callback);
-                });
+                if (RNData.hasQueryToken) {//若已发请求，则保存失败的请求
+                    RNData.tokenExpiredList.push({retryRequest: request, retryCallback: callback})
+                } else {//否则，标记为已请求
+                    RNData.hasQueryToken = true;
+                    RNData.queryTokenHttp = await AuthToken.getAccessToken().then(() => {
+                        request.resendRequest(request, callback);
+
+                        RNData.tokenExpiredList.map(({retryRequest, retryCallback}) => {
+                            retryRequest.resendRequest(retryRequest, retryCallback);
+                        });
+                        RNData.tokenExpiredList = [];
+                        RNData.hasQueryToken = false;
+                    })
+                }
             } else {
                 let {successful, msg, code} = json;
                 callback(success && successful === 1, selfOr(json.data, {}), selfOr(msg, message), code);

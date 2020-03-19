@@ -14,6 +14,8 @@ export const RNStorage = {//持久化数据列表
 export const RNData = {//临时内存数据
     LogOn: true,//展示日志
     canGoBack: false,//webView返回标记
+    tokenExpiredList: [],
+    hasQueryToken: null,
     userAgent: {//http请求使用
         package: DeviceInfo.getBundleId,
         os_version: DeviceInfo.getSystemVersion(),
