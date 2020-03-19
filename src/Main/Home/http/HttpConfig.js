@@ -56,7 +56,7 @@ export default class HttpConfig {
                 if (request.internal && RNStorage.customerId) {
                     params.CUSTOMER_ID = RNStorage.customerId;
                 }
-            }).initParseDataFunc(async (result, request, callback) => {
+            }).initParseDataFunc((result, request, callback) => {
             let {success, json, response, message, status} = result;
             AuthToken.parseTokenRes(response);//解析token
             if (status === 503) {//指定的Token过期标记
@@ -67,7 +67,7 @@ export default class HttpConfig {
                     RNData.tokenExpiredList.push({retryRequest: request, retryCallback: callback})
                 } else {//否则，标记为已请求
                     RNData.hasQueryToken = true;
-                    RNData.queryTokenHttp = await AuthToken.getAccessToken().then(() => {
+                    AuthToken.getAccessToken().then(() => {
                         request.resendRequest(request, callback);
 
                         RNData.tokenExpiredList.map(({retryRequest, retryCallback}) => {
