@@ -7,6 +7,7 @@ import {RFHttp, RFImage, RFlatList, RFText, RFView} from 'react-native-fast-app'
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {Api} from '../http/Api';
 import {showToast} from '../../Common/widgets/Loading';
+import {netWorkException} from "../../Common/utils/Utils";
 
 const headerText = '分页列表支持：无网络，加载中，无数据，加载错误，加载更多等一系列状态展示';
 
@@ -25,6 +26,7 @@ export default class RefreshController extends PureComponent {
             <RFlatList data={dataList}
                        onRefresh={() => this.queryDataList(true)}
                        onLoadMore={() => this.queryDataList(false)}
+                       refreshStatus={{RefreshingData: {text: '刷新中，请稍候...'},}}
                        ListHeaderComponent={() => <RFText style={styles.header} text={headerText}/>}
                        ref={refreshList => this.refreshList = refreshList}
                        renderItem={({item, index}) => this.renderItem(item, index)}/>
@@ -40,8 +42,8 @@ export default class RefreshController extends PureComponent {
         this.pageIndex = isPullDown ? 1 : this.pageIndex + 1;
         this.refreshList && this.refreshList.refreshPreLoad(isPullDown);
         let params = {page: isPullDown ? 1 : this.pageIndex};
-        RFHttp().url(Api.queryAnimations).param(params).contentType(null).get((success, {results, last_page}, msg, code) => {
-            this.refreshList && this.refreshList.refreshLoaded(success, isPullDown, params.page >= last_page, code);
+        RFHttp().url(Api.queryAnimations).param(params).get((success, {results, last_page}, msg, code) => {
+            this.refreshList && this.refreshList.refreshLoaded(success, isPullDown, params.page >= last_page, netWorkException(code));
             if (success) {
                 this.setState({dataList: isPullDown ? results : [...dataList, ...results]});
             } else {
@@ -61,6 +63,8 @@ export default class RefreshController extends PureComponent {
             </RFView>
         </RFView>;
     };
+
+
 }
 
 const styles = StyleSheet.create({

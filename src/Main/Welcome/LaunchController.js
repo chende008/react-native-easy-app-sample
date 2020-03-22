@@ -4,7 +4,7 @@ import {Actions} from 'react-native-router-flux';
 import AsyncStorage from '@react-native-community/async-storage';
 import {RFStorage, RFWidget} from 'react-native-fast-app';
 import {RNStorage} from '../Common/storage/AppStorage';
-import {Assets} from '../Home/http/Api';
+import {Assets} from "../Home/http/Api";
 
 export default class LaunchController extends PureComponent {
 

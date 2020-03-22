@@ -99,3 +99,8 @@ export function fileName(uri) {
     return uri.replace(/^(.+\/)(\w+\.\w+)$/, '$2');
 }
 
+export function netWorkException(code) {
+    return code === -1;
+}
+
+

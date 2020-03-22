@@ -1,5 +1,5 @@
 import DeviceInfo from 'react-native-device-info';
-import {RFApiConst} from 'react-native-fast-app';
+import {RFHttpConst} from 'react-native-fast-app';
 import RFLog from '../../Common/utils/RFLog';
 import {isEmpty} from '../../Common/utils/Utils';
 import {RNStorage} from '../../Common/storage/AppStorage';
@@ -31,7 +31,7 @@ export default class AuthToken {
         if (promise === null) {
             promise = new Promise((resolve, reject) => {
                 let headerParams = {//请求头参数
-                    'Content-Type': RFApiConst.CONTENT_TYPE_URLENCODED,
+                    'Content-Type': RFHttpConst.CONTENT_TYPE_URLENCODED,
                     'refresh-token': RNStorage.refreshToken,
                 };
                 showToast('token失效，重新生成token');
@@ -60,7 +60,6 @@ export default class AuthToken {
         if (internal && isEmpty(headers)) {//header只初始化一次
             headers = {};
             headers.channelCode = RNStorage.channelCode;
-            headers.sourceMark = Const.sourceMark;
             headers.brand = DeviceInfo.getBrand();
             headers.model = DeviceInfo.getModel();
             headers.version = DeviceInfo.getVersion();

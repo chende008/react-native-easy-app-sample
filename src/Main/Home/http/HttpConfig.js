@@ -1,6 +1,6 @@
 import React from 'react';
 import {RNData, RNStorage} from '../../Common/storage/AppStorage';
-import {RFApi, RFApiConst, RFHttpConfig} from 'react-native-fast-app';
+import {RFApi, RFHttpConst, RFHttpConfig} from 'react-native-fast-app';
 import {isEmpty, selfOr} from '../../Common/utils/Utils';
 import {showToast} from '../../Common/widgets/Loading';
 import {ApiCredit, ApiO2O} from './Api';
@@ -19,7 +19,7 @@ export default class HttpConfig {
         RFHttpConfig
             .initHttpLogOn(true)
             .initBaseUrl(ApiO2O.baseUrl)
-            .initContentType(RFApiConst.CONTENT_TYPE_URLENCODED)
+            .initContentType(RFHttpConst.CONTENT_TYPE_URLENCODED)
             .initParamSetFunc((params, request) => {
                 if (request.internal && !isEmpty(RNStorage.accessToken)) {
                     params.access_token = RNStorage.accessToken;
@@ -41,7 +41,7 @@ export default class HttpConfig {
         RFHttpConfig
             .initHttpLogOn(true)
             .initBaseUrl(ApiCredit.baseUrl)
-            .initContentType(RFApiConst.CONTENT_TYPE_URLENCODED)
+            .initContentType(RFHttpConst.CONTENT_TYPE_URLENCODED)
             .initHeaderSetFunc((headers, request) => {
                 if (request.internal) {
                     Object.assign(headers, AuthToken.baseHeaders());//添加基础参数
