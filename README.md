@@ -5,6 +5,11 @@
  * Http公共配置与请求
  * AsyncStorage的访问与使用
  * 基础控件的封装，提高各种应用场景的快速布局
+ 
+### 效果Gif
+
+ ![image](https://github.com/chende008/react-native-fast-app-sample/blob/master/images/app_sample.gif)
+ ![image](https://github.com/chende008/react-native-fast-app-sample/blob/master/images/tool_smaple.gif)
 
 ### 用法
 

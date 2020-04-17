@@ -1,18 +1,17 @@
 import React from 'react';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
-import RootSiblings from 'react-native-root-siblings';
-import Toast from 'react-native-root-toast';
+import Toast, {Manager} from 'react-native-root-toast';
 import {isEmpty} from '../utils/Utils';
 import {RFText, RFView} from 'react-native-fast-app';
 import {Const} from '../storage/Const';
 
-let rfSibling = undefined;
+let siblings = undefined;
 let toast = null;
 
 export const Loading = {
 
     show: (text, showIndicator = true) => {
-        rfSibling = new RootSiblings(
+        siblings = new Manager(
             <View style={[styles.maskStyle, {backgroundColor: showIndicator ? 'rgba(0, 0, 0, 0.6)' : 'transparent'}]}>
                 <RFView style={[styles.backViewStyle, {paddingVertical: showIndicator ? 16 : 0}]}>
                     {showIndicator && <ActivityIndicator style={{marginBottom: 5}} size="large" color="white"/>}
@@ -20,13 +19,12 @@ export const Loading = {
                 </RFView>
             </View>,
         );
-        rfSibling.id = 134343;
-        return rfSibling;
+        return siblings;
     },
 
     hidden: () => {
-        if (rfSibling instanceof RootSiblings) {
-            rfSibling.destroy();
+        if (siblings instanceof Manager) {
+            siblings.destroy();
         }
     },
 

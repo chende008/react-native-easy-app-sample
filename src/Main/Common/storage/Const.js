@@ -3,7 +3,6 @@ import DeviceInfo from 'react-native-device-info';
 
 const {width, height, scale} = Dimensions.get('window');
 
-
 export const Const = {
     screenWidth: width,//屏幕宽
     screenHeight: height,//屏幕宽

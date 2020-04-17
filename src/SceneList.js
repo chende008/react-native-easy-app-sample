@@ -6,6 +6,7 @@ import StorageController from "./Main/Home/storage/StorageController";
 import WidgetController from "./Main/Home/view/WidgetController";
 import RefreshController from "./Main/Home/view/RefreshController";
 import HttpController from "./Main/Home/view/HttpController";
+import WebViewController from "./Main/Home/view/WebViewController";
 
 export const RouterList = () => (//项目页面清单
     <Router>
@@ -16,6 +17,7 @@ export const RouterList = () => (//项目页面清单
             <Scene key='storage' component={StorageController}/>
             <Scene key='widget' component={WidgetController}/>
             <Scene key='refreshList' component={RefreshController}/>
+            <Scene key='webView' component={WebViewController}/>
         </Scene>
     </Router>
 );

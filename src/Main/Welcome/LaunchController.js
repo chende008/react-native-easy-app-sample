@@ -5,6 +5,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {RFStorage, RFWidget} from 'react-native-fast-app';
 import {RNStorage} from '../Common/storage/AppStorage';
 import {Assets} from "../Home/http/Api";
+import RFLog from "../Common/utils/RFLog";
 
 export default class LaunchController extends PureComponent {
 
@@ -26,7 +27,7 @@ export default class LaunchController extends PureComponent {
     printLog = (data) => {
         data.map(([keyStr, value]) => {
             let [, key] = keyStr.split('#');
-            console.log('持久化数据变更:', key, '<###>', value);
+            RFLog.log('持久化数据变更:', key, '<###>', value);
         })
     };
 

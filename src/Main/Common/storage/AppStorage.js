@@ -2,10 +2,10 @@ import React from 'react';
 import DeviceInfo from 'react-native-device-info';
 
 export const RNStorage = {//持久化数据列表
-    userId: undefined,//用户ID
     customerId: undefined,//客户ID
     accessToken: undefined,//OAuth2.0 accessToken
     refreshToken: undefined,//OAuth2.0 refreshToken
+    baseUrl: undefined,
     str: undefined,//测试符串
     json: undefined,//测试符串
     [DeviceInfo.getBundleId()]: undefined,

@@ -2288,6 +2288,11 @@ escape-html@~1.0.3:
   resolved "https://registry.npm.taobao.org/escape-html/download/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
+escape-string-regexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -2420,6 +2425,11 @@ eventemitter3@^3.0.0:
   version "3.1.2"
   resolved "https://registry.npm.taobao.org/eventemitter3/download/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha1-LT1I+cNGaY/Og6hdfWZOmFNd9uc=
+
+events@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/events/-/events-3.1.0.tgz#84279af1b34cb75aa88bf5ff291f6d0bd9b31a59"
+  integrity sha512-Rv+u8MLHNOdMjTAFeT3nCjHn2aGlx435FP/sDHNaRhDEMwyI/aB22Kj2qIN8R0cw3z28psEQLYwxVKLsKrMgWg==
 
 exec-sh@^0.3.2:
   version "0.3.4"
@@ -3164,7 +3174,7 @@ inquirer@^7.0.0:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha1-YQ88ksk1nOHbYW5TgAjSP/NRWOY=
@@ -5354,6 +5364,10 @@ react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
+"react-native-debug-tool@https://github.com/chende008/react-native-debug-tool.git#master":
+  version "1.0.0"
+  resolved "https://github.com/chende008/react-native-debug-tool.git#beb1ac57a764e52d22c5c0e887f677804ff740ca"
+
 react-native-device-info@^5.4.4:
   version "5.4.4"
   resolved "https://registry.npm.taobao.org/react-native-device-info/download/react-native-device-info-5.4.4.tgz#20e751e679764494fc1027e79ba507bbd22fda03"
@@ -5378,9 +5392,9 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
 
-"react-native-fast-app@git+https://github.com/chende008/react-native-fast-app.git#master":
-  version "1.4.2"
-  resolved "git+https://github.com/chende008/react-native-fast-app.git#eced8da5a1b28fc4451c9b5dd0fdd99f30040dad"
+"react-native-fast-app@https://github.com/chende008/react-native-fast-app.git#master":
+  version "1.4.5"
+  resolved "https://github.com/chende008/react-native-fast-app.git#bb00d894b34b42aa8c2521b6b78c5ad9c425e23f"
 
 react-native-gesture-handler@^1.5.3:
   version "1.5.3"
@@ -5397,18 +5411,18 @@ react-native-reanimated@^1.7.0:
   resolved "https://registry.npm.taobao.org/react-native-reanimated/download/react-native-reanimated-1.7.0.tgz#896db2576552ac59d288a1f6c7f00afc171f240c"
   integrity sha1-iW2yV2VSrFnSiKH2x/AK/BcfJAw=
 
-react-native-root-siblings@3.2.3, react-native-root-siblings@^3.0.0:
+react-native-root-siblings@^3.0.0:
   version "3.2.3"
-  resolved "https://registry.npm.taobao.org/react-native-root-siblings/download/react-native-root-siblings-3.2.3.tgz#df5a1cff3a3a1f433f57320e1cae719f1b15a3f2"
-  integrity sha1-31oc/zo6H0M/VzIOHK5xnxsVo/I=
+  resolved "https://registry.yarnpkg.com/react-native-root-siblings/-/react-native-root-siblings-3.2.3.tgz#df5a1cff3a3a1f433f57320e1cae719f1b15a3f2"
+  integrity sha512-wOCCtKJteaSIW3K++hzhkfdWRikTqjrG34DnhNDVSzKatuNQyFY1fPBD1YFT/3+kxOIUmNsJdiaPMao9QgoZMA==
   dependencies:
     prop-types "^15.6.2"
     static-container "^1.0.0"
 
-react-native-root-toast@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.npm.taobao.org/react-native-root-toast/download/react-native-root-toast-3.1.2.tgz#c8a1944f101c0768045202a276f46f9d710181a2"
-  integrity sha1-yKGUTxAcB2gEUgKidvRvnXEBgaI=
+react-native-root-toast@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-root-toast/-/react-native-root-toast-3.0.0.tgz#93292a5c743abbf0f46843dcfc8c89c6344bab50"
+  integrity sha512-MgkxweDpuLRhOegEOwAdYZJiYz4rNaC4BxRS1HYqhrE6hNVDRt8d8ZNGtwCNU8mu01TCTfhOMW+yqXMW5Manww==
   dependencies:
     prop-types "^15.5.10"
     react-native-root-siblings "^3.0.0"
@@ -5458,6 +5472,15 @@ react-native-tab-view@^1.0.0:
   integrity sha1-8RPNh0hYCPDJkavsk39w+jgEeLk=
   dependencies:
     prop-types "^15.6.1"
+
+react-native-webview@^9.2.1:
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-9.2.1.tgz#3984266c098bdd06fe9fe1d2393ed2f8fd7c67cd"
+  integrity sha512-1h6EKYeWZyw0hbG77CWB+5MhF64qC1Xim9ZacKbjXhZBolDtUudTmBMHuy4fN2PCkGdwgSUVOPA+wNn3L4HBJw==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
+    uuid "^7.0.3"
 
 react-native@0.61.5:
   version "0.61.5"
@@ -6234,8 +6257,8 @@ stacktrace-parser@^0.1.3:
 
 static-container@^1.0.0:
   version "1.5.1"
-  resolved "https://registry.npm.taobao.org/static-container/download/static-container-1.5.1.tgz#9d7a94e04dea864539a7b6a1304843ada740dc19"
-  integrity sha1-nXqU4E3qhkU5p7ahMEhDradA3Bk=
+  resolved "https://registry.yarnpkg.com/static-container/-/static-container-1.5.1.tgz#9d7a94e04dea864539a7b6a1304843ada740dc19"
+  integrity sha512-OFChfLKIvSzaMA3otS5CEabJTIzHFPhMxogIT+io4F207PXTvS6woFyjXIyXyqMIYAhryePGeFZYC6uLcG1lpA==
 
 static-extend@^0.1.1:
   version "0.1.2"
@@ -6753,6 +6776,11 @@ uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.npm.taobao.org/uuid/download/uuid-3.4.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fuuid%2Fdownload%2Fuuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
+
+uuid@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"

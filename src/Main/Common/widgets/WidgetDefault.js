@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {Colors, Const, ImageRes} from "../storage/Const";
 import {RFText} from 'react-native-fast-app';
 import {StyleSheet} from "react-native";
+import RFLog from "../utils/RFLog";
 
 export function RNLine({style, ...props}) {//分割线（若为水平线，支持左边距属性形式设置）
     let {vertical = false, bold = false, leftMargin} = props;
@@ -24,10 +25,14 @@ export function RNBtn({style = {}, key, onPress, ...props}) {
 
 RNBtn.propTypes = {text: PropTypes.string, raw: PropTypes.bool, checked: PropTypes.bool, borderRadius: PropTypes.number};
 
-export function RNItem({text, style, noArrow, ...props}) {
+export function RNItem({text, style, onPress, noArrow, ...props}) {
     return <RFText style={[styles.rnTextItem, style]}
                    text={text}
                    iconSize={16}
+                   onPress={() => {
+                       onPress && onPress();
+                       RFLog.log(text)
+                   }}
                    iconPosition='right'
                    icon={noArrow ? '' : ImageRes.right_arrow}
                    textExtend {...props}/>

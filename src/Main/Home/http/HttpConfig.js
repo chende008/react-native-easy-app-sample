@@ -5,6 +5,8 @@ import {isEmpty, selfOr} from '../../Common/utils/Utils';
 import {showToast} from '../../Common/widgets/Loading';
 import {ApiCredit, ApiO2O} from './Api';
 import AuthToken from './AuthToken';
+import {DebugManager} from "react-native-debug-tool";
+import {Notify} from "../../Common/events/Notify";
 
 /**
  * RN Http请求 库设置类
@@ -12,7 +14,17 @@ import AuthToken from './AuthToken';
 export default class HttpConfig {
 
     static initDemo() {//非站内、非标准请求
-        RFHttpConfig.initHttpLogOn(true);
+        RFHttpConfig.initHttpLogOn(true)
+        // .initBaseUrl('https://www.baidu.com')
+            .initParseDataFunc((result, request, callback) => {
+                let {success, json, message, status, response} = result;
+                DebugManager.appendHttpLogs(request, response);
+                if (status === 503) {// token 过期
+                    Notify.TOKEN_EXPIRED.sendEvent({message})
+                } else {
+                    callback(success, json, message, status, response)
+                }
+            });
     }
 
     static initO2O() {
@@ -26,7 +38,7 @@ export default class HttpConfig {
                 }
             })
             .initParseDataFunc((result, request, callback) => {
-                let {success, json, message, status} = result;
+                let {success, json, message, status, response} = result;
                 if (status === 401) {//Token过期
                     showToast('token过期，请重新登录');
                 } else {
