@@ -5,9 +5,9 @@
  * Http公共配置与请求
  * AsyncStorage的访问与使用
  * 基础控件的封装，提高各种应用场景的快速布局
+ * 开发调试工具
  
 ### 效果Gif
-
 
 <figure class="half">
     <img src="https://github.com/chende008/react-native-fast-app-sample/blob/master/images/app_sample.gif">
