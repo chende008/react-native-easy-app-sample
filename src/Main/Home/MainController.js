@@ -10,7 +10,6 @@ import {Manager} from 'react-native-root-toast'
 import DeviceInfo from 'react-native-device-info';
 import {Notify} from "../Common/events/Notify";
 import {RNStorage} from "../Common/storage/AppStorage";
-import {RFHttpConfig} from "react-native-fast-app";
 
 let lastClickTime = (new Date()).valueOf();
 
