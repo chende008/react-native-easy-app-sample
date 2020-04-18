@@ -8,8 +8,8 @@ export default class RFLog {
 
     static log(...args) {
         args.map((item, index) => args[index] = toStr(item));
-        RNData.LogOn && console.log(...args);
-        DebugManager.appendLogs(String(args))
+        RNData.LogOn && console.log(args.join(''));
+        DebugManager.appendLogs(args.join(''))
     }
 
     static warn(...args) {

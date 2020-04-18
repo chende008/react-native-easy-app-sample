@@ -5365,8 +5365,10 @@ react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.4:
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
 "react-native-debug-tool@https://github.com/chende008/react-native-debug-tool.git#master":
-  version "1.0.0"
-  resolved "https://github.com/chende008/react-native-debug-tool.git#beb1ac57a764e52d22c5c0e887f677804ff740ca"
+  version "1.0.1"
+  resolved "https://github.com/chende008/react-native-debug-tool.git#c6198ccaa9d31b482ed4b5c81010ca1338173fb7"
+  dependencies:
+    react-native-root-siblings "3.2.3"
 
 react-native-device-info@^5.4.4:
   version "5.4.4"
@@ -5411,7 +5413,7 @@ react-native-reanimated@^1.7.0:
   resolved "https://registry.npm.taobao.org/react-native-reanimated/download/react-native-reanimated-1.7.0.tgz#896db2576552ac59d288a1f6c7f00afc171f240c"
   integrity sha1-iW2yV2VSrFnSiKH2x/AK/BcfJAw=
 
-react-native-root-siblings@^3.0.0:
+react-native-root-siblings@3.2.3, react-native-root-siblings@^3.0.0:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/react-native-root-siblings/-/react-native-root-siblings-3.2.3.tgz#df5a1cff3a3a1f433f57320e1cae719f1b15a3f2"
   integrity sha512-wOCCtKJteaSIW3K++hzhkfdWRikTqjrG34DnhNDVSzKatuNQyFY1fPBD1YFT/3+kxOIUmNsJdiaPMao9QgoZMA==
