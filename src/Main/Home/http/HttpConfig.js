@@ -1,6 +1,6 @@
 import React from 'react';
 import {RNData, RNStorage} from '../../Common/storage/AppStorage';
-import {RFApi, RFHttpConst, RFHttpConfig} from 'react-native-fast-app';
+import {RFHttpConst, RFHttpConfig} from 'react-native-fast-app';
 import {isEmpty, selfOr} from '../../Common/utils/Utils';
 import {showToast} from '../../Common/widgets/Loading';
 import {ApiCredit, ApiO2O} from './Api';
