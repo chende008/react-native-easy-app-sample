@@ -24,7 +24,7 @@ export default class MainController extends PureComponent {
     render() {
         return <SafeAreaView>
             <NavigationBar title='RNDemo' rightText='调试工具' clickRText={() => {
-                DebugManager.showFloat(this.sibling)
+                DebugManager.showFloat(Manager)
             }} hideBack/>
             <RNItem text='Http请求' onPress={() => Actions.http()}/>
             <RNItem text='数据存储' onPress={() => Actions.storage()}/>
@@ -45,7 +45,6 @@ export default class MainController extends PureComponent {
     }
 
     initConfig = () => {
-        this.sibling = new Manager();
         HttpConfig.initDemo();
         let serverUrlMap = new Map();
         serverUrlMap.set('Online', 'https://www.baidu.com');
@@ -58,7 +57,7 @@ export default class MainController extends PureComponent {
                 RNStorage.baseUrl = baseUrl;
                 setTimeout(() => Alert.alert('环境切换', '服务器环境已经切换至' + baseUrl), 1000)
             });
-        DebugManager.showFloat(this.sibling);
+        DebugManager.showFloat(Manager);
     };
 
 
