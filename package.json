@@ -30,7 +30,7 @@
     "react-native-root-toast": "3.0.0",
     "react-native-router-flux": "4.0.0",
     "react-native-screens": "^2.0.0-alpha.32",
-    "react-native-webview": "^9.2.1"
+    "react-native-webview": "8.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

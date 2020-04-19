@@ -14,7 +14,7 @@ import {Notify} from "../../Common/events/Notify";
 export default class HttpConfig {
 
     static initDemo() {//非站内、非标准请求
-        RFHttpConfig.initHttpLogOn(true)
+        RFHttpConfig().initHttpLogOn(true)
         // .initBaseUrl('https://www.baidu.com')
             .initParseDataFunc((result, request, callback) => {
                 let {success, json, message, status, response} = result;
@@ -28,7 +28,7 @@ export default class HttpConfig {
     }
 
     static initO2O() {
-        RFHttpConfig
+        RFHttpConfig()
             .initHttpLogOn(true)
             .initBaseUrl(ApiO2O.baseUrl)
             .initContentType(RFHttpConst.CONTENT_TYPE_URLENCODED)
@@ -50,7 +50,7 @@ export default class HttpConfig {
 
 
     static initCredit() {
-        RFHttpConfig
+        RFHttpConfig()
             .initHttpLogOn(true)
             .initBaseUrl(ApiCredit.baseUrl)
             .initContentType(RFHttpConst.CONTENT_TYPE_URLENCODED)
