@@ -31,7 +31,7 @@ export function RNItem({text, style, onPress, noArrow, ...props}) {
                    iconSize={16}
                    onPress={() => {
                        onPress && onPress();
-                       RFLog.log(text)
+                       RFLog.log('进入', text)
                    }}
                    iconPosition='right'
                    icon={noArrow ? '' : ImageRes.right_arrow}

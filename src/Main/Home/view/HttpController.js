@@ -23,6 +23,7 @@ export default class HttpController extends PureComponent {
         let {content} = this.state;
         return <SafeAreaView style={CommonStyles.container}>
             <NavigationBar title='请求示例'/>
+            <RNItem text='简单数据：标准的json' onPress={() => this.moviesList()}/>
             <RNItem text='获取图片列表：标准的json' onPress={() => this.animalImageList()}/>
             <RNItem text='同步请求成员列表：标准的json' onPress={() => this.queryMemberList()}/>
             <RNItem text='省份、城市记录数量：返回 XML' onPress={() => this.getCityAmount()}/>
@@ -31,6 +32,17 @@ export default class HttpController extends PureComponent {
             </ScrollView>
         </SafeAreaView>;
     }
+
+    moviesList = () => {//返回标准的json的http请求
+        RFHttp().url(Api.moviesList).formJson().get((success, json, msg, code) => {
+            if (success) {
+                showToast('请求成功');
+                this.setState({content: JSON.stringify(json)});
+            } else {
+                showToast(msg);
+            }
+        });
+    };
 
     animalImageList = () => {//返回标准的json的http请求
         RFHttp().url(Api.animalImageList).get((success, json, msg, code) => {

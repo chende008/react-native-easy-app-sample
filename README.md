@@ -10,8 +10,7 @@
 ### 效果Gif
 
 <figure class="half">
-    <img src="https://github.com/chende008/react-native-fast-app-sample/blob/master/images/app_sample.gif">
-    <img src="https://github.com/chende008/react-native-fast-app-sample/blob/master/images/tool_smaple.gif">
+    <img src="https://github.com/chende008/react-native-fast-app-sample/blob/master/images/app_sample.gif"><img src="https://github.com/chende008/react-native-fast-app-sample/blob/master/images/tool_smaple.gif">
 </figure>
 
 ### 用法
