@@ -13,7 +13,7 @@ import {Notify} from "../../Common/events/Notify";
  */
 export default class HttpConfig {
 
-    static initDemo() {//非站内、非标准请求
+    static initDemo() {
         RFHttpConfig().initHttpLogOn(true)
         // .initBaseUrl('https://www.baidu.com')
             .initParseDataFunc((result, request, callback) => {
@@ -27,7 +27,7 @@ export default class HttpConfig {
             });
     }
 
-    static initO2O() {
+    static httpToken() {
         RFHttpConfig()
             .initHttpLogOn(true)
             .initBaseUrl(ApiO2O.baseUrl)
@@ -49,7 +49,7 @@ export default class HttpConfig {
     }
 
 
-    static initCredit() {
+    static httpToken2() {
         RFHttpConfig()
             .initHttpLogOn(true)
             .initBaseUrl(ApiCredit.baseUrl)
