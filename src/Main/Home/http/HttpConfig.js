@@ -72,28 +72,39 @@ export default class HttpConfig {
             let {success, json, response, message, status} = result;
             AuthToken.parseTokenRes(response);//解析token
             if (status === 503) {//指定的Token过期标记
-                if (isEmpty(RNStorage.refreshToken) || isEmpty(RNStorage.customerId)) {
-                    showToast('Token过期，退出登录');
-                }
-                if (RNData.hasQueryToken) {//若已发请求，则保存失败的请求
-                    RNData.tokenExpiredList.push({retryRequest: request, retryCallback: callback})
-                } else {//否则，标记为已请求
-                    RNData.hasQueryToken = true;
-                    AuthToken.getAccessToken().then(() => {
-                        request.resendRequest(request, callback);
-
-                        RNData.tokenExpiredList.map(({retryRequest, retryCallback}) => {
-                            retryRequest.resendRequest(retryRequest, retryCallback);
-                        });
-                        RNData.tokenExpiredList = [];
-                        RNData.hasQueryToken = false;
-                    })
-                }
+                this.refreshToken(request, callback)
             } else {
                 let {successful, msg, code} = json;
                 callback(success && successful === 1, selfOr(json.data, {}), selfOr(msg, message), code);
             }
         });
     }
+
+    static refreshToken(request, callback) {
+        if (global.hasQueryToken) {
+            global.tokenExpiredList.push({request, callback});
+        } else {
+            global.hasQueryToken = true;
+            global.tokenExpiredList = [{request, callback}];
+            const refreshUrl = `${RNStorage.baseUrl}api/refreshToken?refreshToken=${RNStorage.refreshToken}`;
+            fetch(refreshUrl).then(resp => {
+                resp.json().then(({successful, data: {accessToken}}) => {
+                    if (successful === 1) {// 获取到新的accessToken
+                        RNStorage.accessToken = accessToken;
+                        global.tokenExpiredList.map(({request, callback}) => {
+                            request.resendRequest(request, callback);
+                        });
+                        global.tokenExpiredList = [];
+                    } else {
+                        console.log('Token 过期，退出登录');
+                    }
+                });
+            }).catch(err => {
+                console.log('Token 过期，退出登录');
+            }).finally(() => {
+                global.hasQueryToken = false;
+            });
+        }
+    };
 
 }
