@@ -56,7 +56,7 @@ export default class HttpController extends PureComponent {
     };
 
     queryMemberList = async () => {//同步请求数据
-        let {success, json, message, status} = await RFHttp().url(Api.queryMembers).execute('GET');
+        let {success, json, message, status} = await RFHttp().url(Api.queryMembers).loadingFunc((loading) => showLoading('请求中，请稍候...', loading)).execute('GET');
 
         success ? this.setState({content: JSON.stringify(json)}) : showToast(message);
 
