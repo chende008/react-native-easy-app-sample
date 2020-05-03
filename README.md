@@ -1,5 +1,7 @@
 # react-native-fast-app Demo
 
+#### [react-native-redux 版本实现入口](https://github.com/chende008/Sample_Redux)
+
 ### 功能点
 
  * Http公共配置与请求
