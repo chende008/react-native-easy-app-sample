@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {ScrollView, SafeAreaView} from 'react-native';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
-import {RFHttp, RFText, RFView} from 'react-native-fast-app';
+import {XHttp, XText, XView} from 'react-native-easy-app';
 import {RNItem} from '../../Common/widgets/WidgetDefault';
 import {Colors, CommonStyles} from '../../Common/storage/Const';
 import {Api} from '../http/Api';
@@ -28,13 +28,13 @@ export default class HttpController extends PureComponent {
             <RNItem text='同步请求成员列表：标准的json' onPress={() => this.queryMemberList()}/>
             <RNItem text='省份、城市记录数量：返回 XML' onPress={() => this.getCityAmount()}/>
             <ScrollView>
-                <RFText style={{fontSize: 12, color: Colors.text_lighter, padding: 10}} text={content}/>
+                <XText style={{fontSize: 12, color: Colors.text_lighter, padding: 10}} text={content}/>
             </ScrollView>
         </SafeAreaView>;
     }
 
     moviesList = () => {//返回标准的json的http请求
-        RFHttp().url(Api.moviesList).formJson().get((success, json, msg, code) => {
+        XHttp().url(Api.moviesList).formJson().get((success, json, msg, code) => {
             if (success) {
                 showToast('请求成功');
                 this.setState({content: JSON.stringify(json)});
@@ -45,7 +45,7 @@ export default class HttpController extends PureComponent {
     };
 
     animalImageList = () => {//返回标准的json的http请求
-        RFHttp().url(Api.animalImageList).get((success, json, msg, code) => {
+        XHttp().url(Api.animalImageList).get((success, json, msg, code) => {
             if (success) {
                 showToast('请求成功');
                 this.setState({content: JSON.stringify(json)});
@@ -56,7 +56,7 @@ export default class HttpController extends PureComponent {
     };
 
     queryMemberList = async () => {//同步请求数据
-        let {success, json, message, status} = await RFHttp().url(Api.queryMembers).loadingFunc((loading) => showLoading('请求中，请稍候...', loading)).execute('GET');
+        let {success, json, message, status} = await XHttp().url(Api.queryMembers).loadingFunc((loading) => showLoading('请求中，请稍候...', loading)).execute('GET');
 
         success ? this.setState({content: JSON.stringify(json)}) : showToast(message);
 
@@ -78,7 +78,7 @@ export default class HttpController extends PureComponent {
     };
 
     getCityAmount = () => {//查询各城市Mobile服务数量
-        RFHttp().url(Api.queryCitiesAmount)
+        XHttp().url(Api.queryCitiesAmount)
             .contentType('text/xml; charset=utf-8')
             .loadingFunc((loading) => showLoading('请求中，请稍候...', loading))
             .pureText().get((success, data, msg, code) => {

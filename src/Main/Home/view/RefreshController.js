@@ -3,7 +3,7 @@ import React, {PureComponent} from 'react';
 import {StyleSheet, View, SafeAreaView} from 'react-native';
 
 import {Colors, CommonStyles, Const} from '../../Common/storage/Const';
-import {RFHttp, RFImage, RFlatList, RFText, RFView} from 'react-native-fast-app';
+import {XHttp, XImage, XFlatList, XText, XView} from 'react-native-easy-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {Api} from '../http/Api';
 import {showToast} from '../../Common/widgets/Loading';
@@ -23,11 +23,11 @@ export default class RefreshController extends PureComponent {
         let {dataList} = this.state;
         return <SafeAreaView style={CommonStyles.container}>
             <NavigationBar title='RefreshList组件'/>
-            <RFlatList data={dataList}
+            <XFlatList data={dataList}
                        onRefresh={() => this.queryDataList(true)}
                        onLoadMore={() => this.queryDataList(false)}
                        refreshStatus={{RefreshingData: {text: '刷新中，请稍候...'},}}
-                       ListHeaderComponent={() => <RFText style={styles.header} text={headerText}/>}
+                       ListHeaderComponent={() => <XText style={styles.header} text={headerText}/>}
                        ref={refreshList => this.refreshList = refreshList}
                        renderItem={({item, index}) => this.renderItem(item, index)}/>
         </SafeAreaView>;
@@ -42,7 +42,7 @@ export default class RefreshController extends PureComponent {
         this.pageIndex = isPullDown ? 1 : this.pageIndex + 1;
         this.refreshList && this.refreshList.refreshPreLoad(isPullDown);
         let params = {page: isPullDown ? 1 : this.pageIndex};
-        RFHttp().url(Api.queryAnimations).param(params).get((success, {results, last_page}, msg, code) => {
+        XHttp().url(Api.queryAnimations).param(params).get((success, {results, last_page}, msg, code) => {
             this.refreshList && this.refreshList.refreshLoaded(success, isPullDown, params.page >= last_page, netWorkException(code));
             if (success) {
                 this.setState({dataList: isPullDown ? results : [...dataList, ...results]});
@@ -54,14 +54,14 @@ export default class RefreshController extends PureComponent {
 
     renderItem = (item, index) => {
         let {title, image_url, type, score, synopsis, members} = item;
-        return <RFView key={index} style={styles.itemParent}>
-            <RFImage style={{width: 120, height: 120, margin: 5}} resizeMode='contain' icon={image_url}/>
-            <RFView style={{flex: 1}}>
-                <RFText style={{fontSize: 14, fontWeight: 'bold', color: Colors.text, paddingRight: 5}} text={'名称：' + title}/>
-                <RFText style={styles.itemDesc} numberOfLines={4} text={synopsis}/>
-                <RFText style={{fontSize: 12, color: Colors.text}} text={'评分：' + score + '    参与人数：' + members}/>
-            </RFView>
-        </RFView>;
+        return <XView key={index} style={styles.itemParent}>
+            <XImage style={{width: 120, height: 120, margin: 5}} resizeMode='contain' icon={image_url}/>
+            <XView style={{flex: 1}}>
+                <XText style={{fontSize: 14, fontWeight: 'bold', color: Colors.text, paddingRight: 5}} text={'名称：' + title}/>
+                <XText style={styles.itemDesc} numberOfLines={4} text={synopsis}/>
+                <XText style={{fontSize: 12, color: Colors.text}} text={'评分：' + score + '    参与人数：' + members}/>
+            </XView>
+        </XView>;
     };
 
 

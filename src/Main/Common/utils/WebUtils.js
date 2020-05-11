@@ -1,11 +1,11 @@
 import {Linking} from "react-native";
 import {Notify} from "../events/Notify";
-import RFLog from "./RFLog";
+import XLog from "./XLog";
 
 export default class WebUtils {
 
     static msgFromH5(data, webView) {
-        RFLog.log('来自H5消息', JSON.stringify(data));
+        XLog.log('来自H5消息', JSON.stringify(data));
         if (typeof data !== 'object') return; //不接收非对象数据
         let {type, value} = data;
         switch (type) {

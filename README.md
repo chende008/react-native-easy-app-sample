@@ -1,4 +1,4 @@
-# react-native-fast-app Demo
+# react-native-easy-app Demo
 
 #### [react-native-redux 版本实现入口](https://github.com/chende008/Sample_Redux)
 
@@ -12,7 +12,7 @@
 ### 效果Gif
 
 <figure class="half">
-    <img src="https://github.com/chende008/react-native-fast-app-sample/blob/master/images/app_sample.gif"><img src="https://github.com/chende008/react-native-fast-app-sample/blob/master/images/tool_smaple.gif">
+    <img src="https://github.com/chende008/react-native-easy-app-sample/blob/master/images/app_sample.gif"><img src="https://github.com/chende008/react-native-easy-app-sample/blob/master/images/tool_smaple.gif">
 </figure>
 
 ### 用法
@@ -96,7 +96,7 @@
    * RFTouch 系列防快速点击基础组件（所有点击事件的基础）
    * RFText 支持RNTouch点击事件、支持图标设置(相对于文本图标可设置居left、top、right、bottom)
    
-   ![image](https://github.com/chende008/react-native-fast-app-sample/blob/master/images/RNText.png)
+   ![image](https://github.com/chende008/react-native-easy-app-sample/blob/master/images/RNText.png)
    
    ```jsx
      * RFText 带图标的Text形式代码如下
@@ -116,7 +116,7 @@
    ```
    * RFImage 支持点击事件（相应的提供图标尺寸可独立设置）
    
-   ![image](https://github.com/chende008/react-native-fast-app-sample/blob/master/images/RNImage.png)
+   ![image](https://github.com/chende008/react-native-easy-app-sample/blob/master/images/RNImage.png)
    
    ```jsx
      *  RFImage 图片属性设置源码如下

@@ -4,7 +4,7 @@ import {toStr} from "./Utils";
 import {RNData} from "../storage/AppStorage";
 import {DebugManager} from "react-native-debug-tool";
 
-export default class RFLog {
+export default class XLog {
 
     static log(...args) {
         args.map((item, index) => args[index] = toStr(item));

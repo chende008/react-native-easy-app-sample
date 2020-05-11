@@ -2,7 +2,7 @@ import React from 'react';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import Toast, {Manager} from 'react-native-root-toast';
 import {isEmpty} from '../utils/Utils';
-import {RFText, RFView} from 'react-native-fast-app';
+import {XText, XView} from 'react-native-easy-app';
 import {Const} from '../storage/Const';
 
 let siblings = undefined;
@@ -13,10 +13,10 @@ export const Loading = {
     show: (text, showIndicator = true) => {
         siblings = new Manager(
             <View style={[styles.maskStyle, {backgroundColor: showIndicator ? 'rgba(0, 0, 0, 0.6)' : 'transparent'}]}>
-                <RFView style={[styles.backViewStyle, {paddingVertical: showIndicator ? 16 : 0}]}>
+                <XView style={[styles.backViewStyle, {paddingVertical: showIndicator ? 16 : 0}]}>
                     {showIndicator && <ActivityIndicator style={{marginBottom: 5}} size="large" color="white"/>}
-                    {text && <RFText style={styles.textStyle} allowFontScaling={false} text={text} numberOfLines={1}/>}
-                </RFView>
+                    {text && <XText style={styles.textStyle} allowFontScaling={false} text={text} numberOfLines={1}/>}
+                </XView>
             </View>,
         );
         return siblings;

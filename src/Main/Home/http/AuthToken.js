@@ -1,6 +1,6 @@
 import DeviceInfo from 'react-native-device-info';
-import {RFHttpConst} from 'react-native-fast-app';
-import RFLog from '../../Common/utils/RFLog';
+import {XHttpConst} from 'react-native-easy-app';
+import XLog from '../../Common/utils/XLog';
 import {isEmpty} from '../../Common/utils/Utils';
 import {RNStorage} from '../../Common/storage/AppStorage';
 import {showToast} from '../../Common/widgets/Loading';
@@ -31,7 +31,7 @@ export default class AuthToken {
         if (promise === null) {
             promise = new Promise((resolve, reject) => {
                 let headerParams = {//请求头参数
-                    'Content-Type': RFHttpConst.CONTENT_TYPE_URLENCODED,
+                    'Content-Type': XHttpConst.CONTENT_TYPE_URLENCODED,
                     'refresh-token': RNStorage.refreshToken,
                 };
                 showToast('token失效，重新生成token');
@@ -40,7 +40,7 @@ export default class AuthToken {
                     let {successful, data: {access_token}, errorDescription} = jData;
                     if (successful === 1) {//成功获取到refreshToken
                         RNStorage.accessToken = access_token;
-                        RFLog.log('重新获取到accessToken：' + access_token);
+                        XLog.log('重新获取到accessToken：' + access_token);
                         resolve();
                     } else {
                         toLogout(errorDescription);

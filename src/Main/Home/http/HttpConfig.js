@@ -1,6 +1,6 @@
 import React from 'react';
 import {RNData, RNStorage} from '../../Common/storage/AppStorage';
-import {RFHttpConst, RFHttpConfig} from 'react-native-fast-app';
+import {XHttpConst, XHttpConfig} from 'react-native-easy-app';
 import {isEmpty, selfOr} from '../../Common/utils/Utils';
 import {showToast} from '../../Common/widgets/Loading';
 import {ApiCredit, ApiO2O} from './Api';
@@ -14,7 +14,7 @@ import {Notify} from "../../Common/events/Notify";
 export default class HttpConfig {
 
     static initDemo() {
-        RFHttpConfig().initHttpLogOn(true)
+        XHttpConfig().initHttpLogOn(true)
         // .initBaseUrl('https://www.baidu.com')
             .initParseDataFunc((result, request, callback) => {
                 let {success, json, message, status, response} = result;
@@ -28,10 +28,10 @@ export default class HttpConfig {
     }
 
     static httpToken() {
-        RFHttpConfig()
+        XHttpConfig()
             .initHttpLogOn(true)
             .initBaseUrl(ApiO2O.baseUrl)
-            .initContentType(RFHttpConst.CONTENT_TYPE_URLENCODED)
+            .initContentType(XHttpConst.CONTENT_TYPE_URLENCODED)
             .initParamSetFunc((params, request) => {
                 if (request.internal && !isEmpty(RNStorage.accessToken)) {
                     params.access_token = RNStorage.accessToken;
@@ -50,10 +50,10 @@ export default class HttpConfig {
 
 
     static httpToken2() {
-        RFHttpConfig()
+        XHttpConfig()
             .initHttpLogOn(true)
             .initBaseUrl(ApiCredit.baseUrl)
-            .initContentType(RFHttpConst.CONTENT_TYPE_URLENCODED)
+            .initContentType(XHttpConst.CONTENT_TYPE_URLENCODED)
             .initHeaderSetFunc((headers, request) => {
                 if (request.internal) {
                     Object.assign(headers, AuthToken.baseHeaders());//添加基础参数

@@ -6,17 +6,17 @@ import PropTypes from 'prop-types';
 import {isEmpty} from '../utils/Utils';
 import {Actions} from 'react-native-router-flux';
 import {Colors, CommonStyles, Const, ImageRes} from '../storage/Const';
-import {RFImage, RFText, RFView} from 'react-native-fast-app';
+import {XImage, XText, XView} from 'react-native-easy-app';
 
 export function NavigationBar({onBack, clickRText, clickRImage, ...props}) {
     let {title, hideBack = false, rightImage, rightText, noLine = false} = props;
     let lineStyle = noLine ? {} : CommonStyles.bottomLine;
-    return <RFView style={[styles.titleBarParent, lineStyle]}>
-        {!isEmpty(title) && <RFText style={styles.titleText} numberOfLines={1} text={title}/>}
-        {!hideBack && <RFImage style={styles.leftImage} icon={ImageRes.img_back} iconSize={22} onPress={() => onBack && onBack()}/>}
-        {rightText && <RFText style={[styles.rightText]} text={rightText} onPress={() => clickRText && clickRText()}/>}
-        {rightImage && <RFImage style={styles.rightImage} icon={rightImage} iconSize={22} onPress={() => clickRImage && clickRImage()}/>}
-    </RFView>;
+    return <XView style={[styles.titleBarParent, lineStyle]}>
+        {!isEmpty(title) && <XText style={styles.titleText} numberOfLines={1} text={title}/>}
+        {!hideBack && <XImage style={styles.leftImage} icon={ImageRes.img_back} iconSize={22} onPress={() => onBack && onBack()}/>}
+        {rightText && <XText style={[styles.rightText]} text={rightText} onPress={() => clickRText && clickRText()}/>}
+        {rightImage && <XImage style={styles.rightImage} icon={rightImage} iconSize={22} onPress={() => clickRImage && clickRImage()}/>}
+    </XView>;
 }
 
 NavigationBar.propTypes = {// 标题栏属性

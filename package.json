@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "ios": "react-native run-ios",
@@ -24,7 +24,7 @@
     "react-native": "0.61.5",
     "react-native-debug-tool": "https://github.com/chende008/react-native-debug-tool.git#master",
     "react-native-device-info": "^5.4.4",
-    "react-native-fast-app": "https://github.com/chende008/react-native-fast-app.git#master",
+    "react-native-easy-app": "https://github.com/chende008/react-native-easy-app.git#master",
     "react-native-gesture-handler": "^1.5.3",
     "react-native-reanimated": "^1.7.0",
     "react-native-root-toast": "3.0.0",
