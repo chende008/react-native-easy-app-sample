@@ -10,6 +10,8 @@
  * 基础控件的封装，提高各种应用场景的快速布局
  * 开发调试工具
  
+ 简书文章 [react-native-easy-app详解与使用](https://www.jianshu.com/nb/44288056)
+ 
 ### 效果Gif
 
 <figure class="half">
@@ -18,8 +20,6 @@
 
 
 ### 用法
-
-简书文章 [react-native-easy-app详解与使用](https://www.jianshu.com/nb/44288056) 
 
  * 发送请求
      
