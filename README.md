@@ -1,6 +1,7 @@
 # react-native-easy-app Demo
 
-#### [react-native-redux 版本实现入口](https://github.com/chende008/Sample_Redux)
+#### [react-redux 版本实现入口](https://github.com/chende008/Sample_Redux)
+#### [mobx-react 版本实现入口](https://github.com/chende008/Sample_MobX)
 
 ### 功能点
 
