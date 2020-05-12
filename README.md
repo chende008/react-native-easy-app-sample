@@ -16,7 +16,10 @@
     <img src="https://github.com/chende008/react-native-easy-app-sample/blob/master/images/app_sample.gif"><img src="https://github.com/chende008/react-native-easy-app-sample/blob/master/images/tool_smaple.gif">
 </figure>
 
+
 ### 用法
+
+简书文章 [react-native-easy-app详解与使用](https://www.jianshu.com/nb/44288056) 
 
  * 发送请求
      
