@@ -63,7 +63,7 @@ export default class HttpController extends PureComponent {
         /***
          * 或者得使用标准的promise方式解析数据（异步promise）
          *
-         * RFHttp().url(Api.queryMembers).execute('GET').then(({success, json, message, status}) => {
+         * XHttp().url(Api.queryMembers).execute('GET').then(({success, json, message, status}) => {
             if (success) {
                 showToast('请求成功');
                 this.setState({content: JSON.stringify(json)});

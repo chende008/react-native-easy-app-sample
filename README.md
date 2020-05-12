@@ -24,7 +24,7 @@
      const url = 'https://www.baidu.com';
     
      * 同步请求
-     const response = await RFHttp().url(url).execute('GET');
+     const response = await XHttp().url(url).execute('GET');
      const {success, json, message, status} = response;
      
      if(success){
@@ -34,7 +34,7 @@
      }
      
      * 异步请求
-     RFHttp().url(url).get((success, json, message, status)=>{
+     XHttp().url(url).get((success, json, message, status)=>{
          if (success){
             this.setState({content: JSON.stringify(json)});
          } else {
@@ -43,7 +43,7 @@
      });
              
      * 异步请求
-     RFHttp().url(url).execute('GET')
+     XHttp().url(url).execute('GET')
      .then(({success, json, message, status}) => {
          if (success) {
               this.setState({content: JSON.stringify(json)});
@@ -71,10 +71,10 @@
    }
    
    * 将实例对象 RNStorage 与AsyncStorage 存储数据关联起来
-   RFStorage.initStorage(RNStorage, () => {}, '1.0')
+   XStorage.initStorage(RNStorage, () => {}, '1.0')
    
    * 假设登录后可以返回userInfo={}信息
-   RFHttp().url(Api.authCodeLogin).param(params).post((success, json, msg, code) => {
+   XHttp().url(Api.authCodeLogin).param(params).post((success, json, msg, code) => {
        if (success) {
            RNStorage.hasLogin = true; // bool类型存储
            RNStorage.customerId = String(json.id); // 字符串类型存储
@@ -94,47 +94,47 @@
 
  * 基础控件的封装，提高各种应用场景的快速开发
     
-   * RFTouch 系列防快速点击基础组件（所有点击事件的基础）
-   * RFText 支持RNTouch点击事件、支持图标设置(相对于文本图标可设置居left、top、right、bottom)
+   * XView onPress事件支持防抖实现（防止快速、重复点击）
+   * XText 支持RNTouch点击事件、支持图标设置(相对于文本图标可设置居left、top、right、bottom)
    
    ![image](https://github.com/chende008/react-native-easy-app-sample/blob/master/images/RNText.png)
    
    ```jsx
-     * RFText 带图标的Text形式代码如下
-        <RFText style={styles.grayText} text='文本显示'/>
-        <RFText style={styles.text} onPress={() => showToast('点击事件')} text='文本显示（有触摸效果）'/>
-        <RFView style={styles.iconTextParent}>
-            <RFText style={styles.iconText} text='文本' icon='mine_focus_shop' iconSize={20} position='left'/>
-            <RFText style={styles.iconText} text='文本' icon='mine_focus_shop' iconSize={20} position='right'/>
-            <RFText style={styles.iconText} text='文本' icon='mine_focus_shop' iconSize={20} position='top'/>
-            <RFText style={styles.iconText} text='可点击' icon='mine_focus_shop' iconSize={20} position='bottom' onPress={() => showToast('点击事件')}/>
-            <RFText style={styles.iconText} text='无图标'/>
-        </RFView>
-        <RFText style={styles.rnTextItem} text='订单' icon='item_arrow_right' iconSize={16} position='right' textExtend={true}/>
-        <RFView style={{backgroundColor: Colors.white, marginBottom: 30}}>
-             <RFText style={styles.rnSearch} text='请输入客户姓名...' icon='home_search_icon' iconSize={16} position='left' iconMargin={6} onPress={() => showToast('点击跳转去搜索')}/>
-        </RFView>
+     * XText 带图标的Text形式代码如下
+        <XText style={styles.grayText} text='文本显示'/>
+        <XText style={styles.text} onPress={() => showToast('点击事件')} text='文本显示（有触摸效果）'/>
+        <XView style={styles.iconTextParent}>
+            <XText style={styles.iconText} text='文本' icon='mine_focus_shop' iconSize={20} position='left'/>
+            <XText style={styles.iconText} text='文本' icon='mine_focus_shop' iconSize={20} position='right'/>
+            <XText style={styles.iconText} text='文本' icon='mine_focus_shop' iconSize={20} position='top'/>
+            <XText style={styles.iconText} text='可点击' icon='mine_focus_shop' iconSize={20} position='bottom' onPress={() => showToast('点击事件')}/>
+            <XText style={styles.iconText} text='无图标'/>
+        </XView>
+        <XText style={styles.rnTextItem} text='订单' icon='item_arrow_right' iconSize={16} position='right' textExtend={true}/>
+        <XView style={{backgroundColor: Colors.white, marginBottom: 30}}>
+             <XText style={styles.rnSearch} text='请输入客户姓名...' icon='home_search_icon' iconSize={16} position='left' iconMargin={6} onPress={() => showToast('点击跳转去搜索')}/>
+        </XView>
    ```
-   * RFImage 支持点击事件（相应的提供图标尺寸可独立设置）
+   * XImage 支持点击事件（相应的提供图标尺寸可独立设置）
    
    ![image](https://github.com/chende008/react-native-easy-app-sample/blob/master/images/RNImage.png)
    
    ```jsx
-     *  RFImage 图片属性设置源码如下
-        <RFView style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 30}}>
-              <RFImage style={{width: 65, height: 65}} icon='login_logo'/>
-              <RFImage style={{width: 65, height: 65}} icon={imgUrl}/>
-              <RFImage style={styles.rnImage} icon={imgUrl} onPress={() => showToast('柯南')}/>
-              <RFImage style={{width: 65, height: 65}} icon='mine_setting' onPress={() => showToast('点击事件')}/>
-              <RFImage style={{width: 65, height: 65}} icon='mine_setting' onPress={() => showToast('点击事件')} iconSize={30}/>
-        </RFView>
+     *  XImage 图片属性设置源码如下
+        <XView style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 30}}>
+              <XImage style={{width: 65, height: 65}} icon='login_logo'/>
+              <XImage style={{width: 65, height: 65}} icon={imgUrl}/>
+              <XImage style={styles.rnImage} icon={imgUrl} onPress={() => showToast('柯南')}/>
+              <XImage style={{width: 65, height: 65}} icon='mine_setting' onPress={() => showToast('点击事件')}/>
+              <XImage style={{width: 65, height: 65}} icon='mine_setting' onPress={() => showToast('点击事件')} iconSize={30}/>
+        </XView>
    ```
   
   
- * 分页组件RFlatList，实现一整套包括无网络、加载中、无数据、加载错误、加载更多等一系列状态的可以分布列表展示功能。
+ * 分页组件XFlatList，实现一整套包括无网络、加载中、无数据、加载错误、加载更多等一系列状态的可以分布列表展示功能。
  
    ```jsx 
-        <RFlatList data={dataList}
+        <XFlatList data={dataList}
              onRefresh={() => this.queryDataList(true)}
              onLoadMore={() => this.queryDataList(false)}
              ListHeaderComponent={() => <RNText style={styles.header} text={headerText}/>}

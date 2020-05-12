@@ -53,7 +53,7 @@ export default class MainController extends PureComponent {
         }
         DebugManager.initDeviceInfo(DeviceInfo)
             .initServerUrlMap(serverUrlMap, RNStorage.baseUrl, (baseUrl) => {
-                // RFHttpConfig().initBaseUrl(baseUrl); // 重置Http请求baseUrl 根据实际情况调用
+                // XHttpConfig().initBaseUrl(baseUrl); // 重置Http请求baseUrl 根据实际情况调用
                 RNStorage.baseUrl = baseUrl;
                 setTimeout(() => Alert.alert('环境切换', '服务器环境已经切换至' + baseUrl), 1000)
             });
