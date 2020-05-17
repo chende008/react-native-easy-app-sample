@@ -10,7 +10,7 @@
     "adr": "npx jetify && npx react-native run-android",
     "adr-build": "react-native bundle --entry-file='index.js' --bundle-output='./android/app/src/main/assets/index.android.bundle' --dev=false --platform='android'",
     "apk": "cd android && ./gradlew assembleRelease && cd app/build/outputs/apk/release && open . && adb install -r app-release.apk",
-    "studio": "open android -a /Applications/Android_Studio.app",
+    "studio": "open android -a /Applications/Android\\ Studio.app",
     "ios-build": "react-native bundle --entry-file='index.js' --bundle-output='./index.jsbundle' --dev=false --platform='ios'",
     "zip-bundle-ios": "mkdir bundle && react-native bundle --entry-file index.js --bundle-output bundle/index.jsbundle --platform ios --assets-dest bundle --dev false && zip jsBundleIos.zip -r bundle && rm -rf bundle",
     "zip-bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output index.android.bundle && zip jsBundleAdr.zip index.android.bundle && rm index.android.bundle",
