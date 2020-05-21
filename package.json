@@ -3,10 +3,10 @@
   "version": "1.0.1",
   "private": true,
   "scripts": {
-    "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
+    "ios": "react-native run-ios",
     "adr": "npx jetify && npx react-native run-android",
     "adr-build": "react-native bundle --entry-file='index.js' --bundle-output='./android/app/src/main/assets/index.android.bundle' --dev=false --platform='android'",
     "apk": "cd android && ./gradlew assembleRelease && cd app/build/outputs/apk/release && open . && adb install -r app-release.apk",

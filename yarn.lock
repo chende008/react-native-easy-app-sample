@@ -5647,8 +5647,8 @@ react-native-drawer-layout@1.3.2:
     react-native-dismiss-keyboard "1.0.0"
 
 "react-native-easy-app@https://github.com/chende008/react-native-easy-app.git#master":
-  version "1.6.4"
-  resolved "https://github.com/chende008/react-native-easy-app.git#f0be8d791c04ea4fc6f28f39feb7849d26f343d6"
+  version "1.6.5"
+  resolved "https://github.com/chende008/react-native-easy-app.git#6f71d1106f65c8af36fd87996a1998bcafd6d936"
 
 react-native-gesture-handler@^1.5.3:
   version "1.5.3"
