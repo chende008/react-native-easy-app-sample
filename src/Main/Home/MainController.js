@@ -23,7 +23,7 @@ export default class MainController extends PureComponent {
 
     render() {
         return <SafeAreaView>
-            <NavigationBar title='RNDemo' rightText='调试工具' clickRText={() => {
+            <NavigationBar title='EasyApp' rightText='调试工具' clickRText={() => {
                 DebugManager.showFloat(Manager)
             }} hideBack/>
             <RNItem text='Http请求' onPress={() => Actions.http()}/>
