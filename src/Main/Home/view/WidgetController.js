@@ -23,7 +23,7 @@ export default class WidgetController extends PureComponent {
                     <XText style={styles.iconText} text='可点击' icon={ImageRes.mine_focus_shop} iconSize={20} iconPosition='bottom' onPress={() => showToast('点击事件')}/>
                     <XText style={styles.iconText} text='无图标'/>
                 </XView>
-                <XText style={styles.rnTextItem} text='订单' icon={ImageRes.right_arrow} iconSize={16} iconPosition='right' textExtend={true}/>
+                <XText style={styles.rnTextItem} text='订单' icon={ImageRes.right_arrow} iconSize={16} iconPosition='right' textExtend={true} onPress={() => showToast('点击了订单')}/>
                 <XView style={{backgroundColor: Colors.white, marginBottom: 30}}>
                     <XText style={styles.rnSearch} text='请输入客户姓名...' icon={ImageRes.search_icon} iconSize={16} iconPosition='left' iconMargin={6} onPress={() => showToast('点击跳转去搜索')}/>
                 </XView>
