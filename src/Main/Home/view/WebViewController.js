@@ -1,13 +1,13 @@
 import React, {PureComponent} from 'react';
 
-import {StyleSheet, SafeAreaView, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import WebUtils from "../../Common/utils/WebUtils";
 import {Notify} from "../../Common/events/Notify";
 import {NavigationBar} from "../../Common/widgets/WidgetNavigation";
 import ProgressBar from "../../Common/widgets/ProgressBar";
 import WebView from "react-native-webview";
 import {CommonStyles} from "../../Common/storage/Const";
-import {Actions} from 'react-native-router-flux';
 import {DebugManager} from "react-native-debug-tool";
 
 export default class WebViewController extends PureComponent {
@@ -24,8 +24,8 @@ export default class WebViewController extends PureComponent {
 
     render() {
         let {title, loading, url, canGoBack} = this.state;
-        return <SafeAreaView style={CommonStyles.container}>
-            <NavigationBar title={title} onBack={() => canGoBack ? this.webView.goBack() : Actions.pop()}/>
+        return <>
+            <NavigationBar title={title} onBack={() => canGoBack ? this.webView.goBack() : navigation.pop()}/>
             <View style={{flex: 1}}>
                 <WebView source={{uri: url}}
                          domStorageEnabled={true}
@@ -55,7 +55,7 @@ export default class WebViewController extends PureComponent {
                 />
                 <ProgressBar loading={loading} style={{position: 'absolute', top: 0}} ref={progressBar => (this.progressBar = progressBar)}/>
             </View>
-        </SafeAreaView>
+        </>
     }
 
     componentDidMount() {

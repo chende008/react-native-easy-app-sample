@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 
-import {ScrollView, StyleSheet, View, SafeAreaView} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {Colors, Const, ImageRes} from '../../Common/storage/Const';
 import {XImage, XText, XView} from 'react-native-easy-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
@@ -11,7 +12,7 @@ const imgUrl = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=386732
 export default class WidgetController extends PureComponent {
 
     render() {
-        return <SafeAreaView style={{flex: 1, backgroundColor: Colors.page_bg}}>
+        return <>
             <NavigationBar title='基础组件'/>
             <ScrollView>
                 <XText style={styles.grayText} text='文本显示'/>
@@ -35,7 +36,7 @@ export default class WidgetController extends PureComponent {
                     <XImage style={{width: 65, height: 65}} icon={ImageRes.mine_setting} onPress={() => showToast('点击事件')} iconSize={30}/>
                 </XView>
             </ScrollView>
-        </SafeAreaView>;
+        </>;
     }
 }
 

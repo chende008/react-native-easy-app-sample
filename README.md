@@ -82,7 +82,7 @@
            RNStorage.hasLogin = true; // bool类型存储
            RNStorage.customerId = String(json.id); // 字符串类型存储
            RNStorage.userInfo = json.userInfo; // 对象类型存储
-           Actions.reset('main');
+           navigation.replace('Main');
        } else {
            showToast(msg);
        }

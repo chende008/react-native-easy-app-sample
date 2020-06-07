@@ -38,11 +38,13 @@ export function isEmpty(obj): Boolean {
     return false;
 }
 
-
 export function isIos() {//判断平台为IOS
     return Platform.OS === 'ios';
 }
 
+export function isAndroid() {//判断平台为Android
+    return Platform.OS === 'android';
+}
 
 export function objHasKey(obj) {//判断一个对象是否有属性
     if (isEmpty(obj)) {

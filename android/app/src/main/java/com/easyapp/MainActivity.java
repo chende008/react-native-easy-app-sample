@@ -1,4 +1,4 @@
-package com.rf.example;
+package com.easyapp;
 
 import com.facebook.react.ReactActivity;
 

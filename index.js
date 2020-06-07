@@ -1,4 +1,4 @@
 import {AppRegistry} from 'react-native';
-import {RouterList} from './src/SceneList';
+import App from "./src/App";
 
-AppRegistry.registerComponent('EasyApp', () => RouterList);
+AppRegistry.registerComponent('EasyApp', () => App);

@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react';
-import {ScrollView, SafeAreaView} from 'react-native';
+import {ScrollView} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
-import {XHttp, XText, XView} from 'react-native-easy-app';
+import {XHttp, XText} from 'react-native-easy-app';
 import {RNItem} from '../../Common/widgets/WidgetDefault';
 import {Colors, CommonStyles} from '../../Common/storage/Const';
 import {Api} from '../http/Api';
@@ -21,7 +22,7 @@ export default class HttpController extends PureComponent {
 
     render() {
         let {content} = this.state;
-        return <SafeAreaView style={CommonStyles.container}>
+        return <>
             <NavigationBar title='请求示例'/>
             <RNItem text='简单数据：标准的json' onPress={() => this.moviesList()}/>
             <RNItem text='获取图片列表：标准的json' onPress={() => this.animalImageList()}/>
@@ -30,7 +31,7 @@ export default class HttpController extends PureComponent {
             <ScrollView>
                 <XText style={{fontSize: 12, color: Colors.text_lighter, padding: 10}} text={content}/>
             </ScrollView>
-        </SafeAreaView>;
+        </>;
     }
 
     moviesList = () => {//返回标准的json的http请求
@@ -45,7 +46,7 @@ export default class HttpController extends PureComponent {
     };
 
     animalImageList = () => {//返回标准的json的http请求
-        XHttp().url(Api.animalImageList).get((success, json, msg, code) => {
+        XHttp().url(Api.filmsList).get((success, json, msg, code) => {
             if (success) {
                 showToast('请求成功');
                 this.setState({content: JSON.stringify(json)});

@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 
-import {Clipboard, ScrollView, StyleSheet, View, SafeAreaView} from 'react-native';
+import {Clipboard, ScrollView, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {Colors, CommonStyles} from '../../Common/storage/Const';
 import {toStr} from '../../Common/utils/Utils';
 import {dateFormat} from '../../Common/utils/DateUtils';
@@ -29,7 +30,7 @@ export default class StorageController extends PureComponent {
 
     render() {
         let {text, json, dataChangedCount} = this.state;
-        return <SafeAreaView style={CommonStyles.container}>
+        return <>
             <NavigationBar title='数据存储'/>
             <XView>
                 <XView style={{flexDirection: 'row'}}>
@@ -56,7 +57,7 @@ export default class StorageController extends PureComponent {
             </ScrollView>
             <RNLine/>
             <XText style={styles.text} text={'文本内容：' + text}/>
-        </SafeAreaView>;
+        </>;
     }
 }
 

@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react';
 
-import {StyleSheet, View, SafeAreaView} from 'react-native';
+import {StyleSheet} from 'react-native';
 
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {Colors, CommonStyles, Const} from '../../Common/storage/Const';
 import {XHttp, XImage, XFlatList, XText, XView} from 'react-native-easy-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
@@ -21,7 +22,7 @@ export default class RefreshController extends PureComponent {
 
     render() {
         let {dataList} = this.state;
-        return <SafeAreaView style={CommonStyles.container}>
+        return <>
             <NavigationBar title='RefreshList组件'/>
             <XFlatList data={dataList}
                        onRefresh={() => this.queryDataList(true)}
@@ -30,7 +31,7 @@ export default class RefreshController extends PureComponent {
                        ListHeaderComponent={() => <XText style={styles.header} text={headerText}/>}
                        ref={refreshList => this.refreshList = refreshList}
                        renderItem={({item, index}) => this.renderItem(item, index)}/>
-        </SafeAreaView>;
+        </>;
     }
 
     componentDidMount() {
@@ -69,17 +70,20 @@ export default class RefreshController extends PureComponent {
 
 const styles = StyleSheet.create({
     header: {
-        padding: 10,
+        paddingTop: 10,
+        paddingHorizontal: 10,
         fontSize: 12,
         lineHeight: 16,
         color: Colors.red,
     },
     itemParent: {
         marginTop: 10,
+        paddingTop: 5,
         paddingBottom: 10,
         flexDirection: 'row',
         borderBottomWidth: Const.onePixel,
         borderBottomColor: Colors.split_line,
+        backgroundColor: Colors.white
     },
     itemDesc: {
         flex: 1,
