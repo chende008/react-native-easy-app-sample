@@ -23,9 +23,7 @@ export default class MainController extends PureComponent {
 
     render() {
         return <>
-            <NavigationBar title='EasyApp' rightText='调试工具' clickRText={() => {
-                DebugManager.showFloat(Manager)
-            }} hideBack/>
+            <NavigationBar title='EasyApp' rightText='调试工具' clickRText={() => DebugManager.showFloat(Manager)} hideBack/>
             <RNItem text='Http请求' onPress={() => navigation.push('Http')}/>
             <RNItem text='数据存储' onPress={() => navigation.push('Storage')}/>
             <RNItem text='基础控件' onPress={() => navigation.push('Widget')}/>
