@@ -24,7 +24,6 @@ export default class StorageController extends PureComponent {
                 gender: 'male',
                 time: dateFormat(new Date(), 'yyyy-MM-dd hh:mm'),
             },
-            jsonArr: ['this', 'is', 'a', 'test'],
             dataChangedCount: 0,//数据变更统计
         };
     }
@@ -41,10 +40,6 @@ export default class StorageController extends PureComponent {
                 <XView style={{flexDirection: 'row'}}>
                     <RNItem text='设置Json' style={{flex: 1}} onPress={() => RNStorage.json = json}/>
                     <RNItem text='获取Json' style={{flex: 1}} onPress={() => this.setState({text: JSON.stringify(RNStorage.json)})}/>
-                </XView>
-                <XView style={{flexDirection: 'row'}}>
-                    <RNItem text='set json array' style={{flex: 1}} onPress={() => RNStorage.jsonArray = jsonArr}/>
-                    <RNItem text='get json array' style={{flex: 1}} onPress={() => this.setState({text: JSON.stringify(RNStorage.jsonArray)})}/>
                 </XView>
                 <RNItem text='随机字符串' onPress={() => {
                     RNStorage[DeviceInfo.getBundleId()] = '随机数据value：' + new Date().valueOf();

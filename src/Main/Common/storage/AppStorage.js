@@ -8,7 +8,6 @@ export const RNStorage = {//持久化数据列表
     baseUrl: undefined,
     str: undefined,//测试符串
     json: undefined,//测试json
-    jsonArray: undefined,//测试jsonArray
     [DeviceInfo.getBundleId()]: undefined,
 };
 
