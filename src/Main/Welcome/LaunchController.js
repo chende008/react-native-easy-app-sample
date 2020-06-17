@@ -9,15 +9,23 @@ export default class LaunchController extends PureComponent {
 
     constructor(props) {
         super(props);
-        this.init();
+        console.disableYellowBox = true;
+        this.initAsync(); // this.initSync(); 两种初始化方式二选一( Choose one of two initialization methods )
     }
 
-    init = () => {
-        console.disableYellowBox = true;
+    initAsync = () => {
         XStorage.initStorage(RNStorage, AsyncStorage, () => {
             global.navigation = this.props.navigation;
             navigation.replace('Main')
         }, this.printLog);
+    };
+
+    initSync = async () => {
+        let result = await XStorage.initStorageSync(RNStorage, AsyncStorage, this.printLog);
+        if (result) {
+            global.navigation = this.props.navigation;
+            navigation.replace('Main')
+        }
     };
 
     printLog = (data) => {
@@ -26,6 +34,7 @@ export default class LaunchController extends PureComponent {
             XLog.log('持久化数据变更:', key, '<###>', value);
         })
     };
+
 
     render() {
         return null;
