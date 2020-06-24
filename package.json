@@ -7,7 +7,7 @@
     "test": "jest",
     "lint": "eslint .",
     "adr": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator \"iPhone 11 Pro Max\"",
     "adr-build": "react-native bundle --entry-file='index.js' --bundle-output='./android/app/src/main/assets/index.android.bundle' --dev=false --platform='android'",
     "apk": "cd android && ./gradlew assembleRelease && cd app/build/outputs/apk/release && open . && adb install -r app-release.apk",
     "studio": "open android -a /Applications/Android\\ Studio.app",
