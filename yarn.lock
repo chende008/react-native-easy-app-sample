@@ -5482,8 +5482,8 @@ react-native-device-info@^5.4.4:
   integrity sha512-FxjenoDZJKT53pp/Tl5gMsw5DA82Y5tOuySQlKS5AaDmw+Bu6EqEJjt0z4TRhJOVoqVJ35oCiZ3xViVbz/hB0w==
 
 "react-native-easy-app@https://github.com/chende008/react-native-easy-app.git#master":
-  version "1.7.8"
-  resolved "https://github.com/chende008/react-native-easy-app.git#84f2264cb5591629d45022b56ad4c477f53a136b"
+  version "1.7.9"
+  resolved "https://github.com/chende008/react-native-easy-app.git#22233422fee6bf4dfb7e5099b627d0d1d892d28e"
 
 react-native-gesture-handler@^1.6.1:
   version "1.6.1"

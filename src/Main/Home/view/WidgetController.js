@@ -35,6 +35,7 @@ export default class WidgetController extends PureComponent {
                     <XImage style={{width: 65, height: 65}} icon={ImageRes.mine_setting} onPress={() => showToast('点击事件')}/>
                     <XImage style={{width: 65, height: 65}} icon={ImageRes.mine_setting} onPress={() => showToast('点击事件')} iconSize={30}/>
                 </XView>
+                <XImage style={{width: '90%', height: 200}} icon={require('../../../../images/conan.jpeg')}/>
             </ScrollView>
         </>;
     }
