@@ -4,7 +4,7 @@ import {StatusBar, StyleSheet, View} from 'react-native';
 
 import PropTypes from 'prop-types';
 import {isEmpty, isIos} from '../utils/Utils';
-import {Colors, CommonStyles, Const, ImageRes} from '../storage/Const';
+import {Colors, CommonStyles, ImageRes} from '../storage/Const';
 import {XImage, XText, XView} from 'react-native-easy-app';
 
 export function NavigationBar({onBack, clickRText, clickRImage, ...props}) {

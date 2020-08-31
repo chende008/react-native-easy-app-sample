@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
 
-import {ScrollView, StyleSheet} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Image, ScrollView, StyleSheet} from 'react-native';
 import {Colors, Const, ImageRes} from '../../Common/storage/Const';
 import {XImage, XText, XView} from 'react-native-easy-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
@@ -19,7 +18,7 @@ export default class WidgetController extends PureComponent {
                 <XText style={styles.text} onPress={() => showToast('点击事件')} text='文本显示（有触摸效果）'/>
                 <XView style={styles.iconTextParent}>
                     <XText style={styles.iconText} text='文本' icon={ImageRes.mine_focus_shop} iconSize={20} iconPosition='left'/>
-                    <XText style={styles.iconText} text='文本' icon={ImageRes.mine_focus_shop} iconSize={20} iconPosition='right'/>
+                    <XText style={styles.iconText} text='文本' icon={require('../../../../images/conan.jpeg')} iconSize={20} iconPosition='right'/>
                     <XText style={styles.iconText} text='文本' icon={ImageRes.mine_focus_shop} iconSize={20} iconPosition='top'/>
                     <XText style={styles.iconText} text='可点击' icon={ImageRes.mine_focus_shop} iconSize={20} iconPosition='bottom' onPress={() => showToast('点击事件')}/>
                     <XText style={styles.iconText} text='无图标'/>
@@ -30,12 +29,12 @@ export default class WidgetController extends PureComponent {
                 </XView>
                 <XView style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 30}}>
                     <XImage style={{width: 65, height: 65}} icon={ImageRes.login_logo}/>
-                    <XImage style={{width: 65, height: 65}} icon={imgUrl}/>
+                    <XImage style={{width: 65, height: 65}} icon={require('../../../../images/conan.jpeg')}/>
                     <XImage style={styles.rnImage} icon={imgUrl} onPress={() => showToast('柯南')}/>
                     <XImage style={{width: 65, height: 65}} icon={ImageRes.mine_setting} onPress={() => showToast('点击事件')}/>
                     <XImage style={{width: 65, height: 65}} icon={ImageRes.mine_setting} onPress={() => showToast('点击事件')} iconSize={30}/>
                 </XView>
-                <XImage style={{width: '90%', height: 200}} icon={require('../../../../images/conan.jpeg')}/>
+                <Image style={{width: '90%', height: 200, alignSelf: 'center'}} source={require('../../../../images/conan.jpeg')}/>
             </ScrollView>
         </>;
     }

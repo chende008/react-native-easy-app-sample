@@ -1,8 +1,7 @@
 import React, {PureComponent} from 'react';
 
 import {Clipboard, ScrollView, StyleSheet} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Colors, CommonStyles} from '../../Common/storage/Const';
+import {Colors} from '../../Common/storage/Const';
 import {toStr} from '../../Common/utils/Utils';
 import {dateFormat} from '../../Common/utils/DateUtils';
 import {RNStorage} from '../../Common/storage/AppStorage';

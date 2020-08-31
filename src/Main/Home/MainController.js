@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {BackHandler, Alert, StatusBar, View} from 'react-native';
+import {Alert, BackHandler} from 'react-native';
 import {NavigationBar} from '../Common/widgets/WidgetNavigation';
 import {RNItem} from '../Common/widgets/WidgetDefault';
 import HttpConfig from './http/HttpConfig';
@@ -9,7 +9,6 @@ import {Manager} from 'react-native-root-toast';
 import DeviceInfo from 'react-native-device-info';
 import {Notify} from '../Common/events/Notify';
 import {RNStorage} from '../Common/storage/AppStorage';
-import {Colors} from "../Common/storage/Const";
 
 let lastClickTime = (new Date()).valueOf();
 

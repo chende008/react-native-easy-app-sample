@@ -1,13 +1,11 @@
 import React, {PureComponent} from 'react';
 
 import {StyleSheet, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import WebUtils from "../../Common/utils/WebUtils";
 import {Notify} from "../../Common/events/Notify";
 import {NavigationBar} from "../../Common/widgets/WidgetNavigation";
 import ProgressBar from "../../Common/widgets/ProgressBar";
 import WebView from "react-native-webview";
-import {CommonStyles} from "../../Common/storage/Const";
 import {DebugManager} from "react-native-debug-tool";
 
 export default class WebViewController extends PureComponent {

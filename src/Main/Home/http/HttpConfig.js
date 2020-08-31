@@ -1,6 +1,6 @@
 import React from 'react';
-import {RNData, RNStorage} from '../../Common/storage/AppStorage';
-import {XHttpConst, XHttpConfig} from 'react-native-easy-app';
+import {RNStorage} from '../../Common/storage/AppStorage';
+import {XHttpConfig, XHttpConst} from 'react-native-easy-app';
 import {isEmpty, selfOr} from '../../Common/utils/Utils';
 import {showToast} from '../../Common/widgets/Loading';
 import {ApiCredit, ApiO2O} from './Api';

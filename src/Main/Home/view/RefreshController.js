@@ -1,10 +1,8 @@
 import React, {PureComponent} from 'react';
 
 import {StyleSheet} from 'react-native';
-
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Colors, CommonStyles, Const} from '../../Common/storage/Const';
-import {XHttp, XImage, XFlatList, XText, XView} from 'react-native-easy-app';
+import {Colors, Const} from '../../Common/storage/Const';
+import {XFlatList, XHttp, XImage, XText, XView} from 'react-native-easy-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {Api} from '../http/Api';
 import {showToast} from '../../Common/widgets/Loading';

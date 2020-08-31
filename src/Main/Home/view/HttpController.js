@@ -1,10 +1,9 @@
 import React, {PureComponent} from 'react';
 import {ScrollView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {XHttp, XText} from 'react-native-easy-app';
 import {RNItem} from '../../Common/widgets/WidgetDefault';
-import {Colors, CommonStyles} from '../../Common/storage/Const';
+import {Colors} from '../../Common/storage/Const';
 import {Api} from '../http/Api';
 import {showLoading, showToast} from '../../Common/widgets/Loading';
 
