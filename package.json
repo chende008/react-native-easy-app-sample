@@ -28,7 +28,7 @@
     "react-native": "0.62.2",
     "react-native-debug-tool": "https://github.com/chende008/react-native-debug-tool.git#master",
     "react-native-device-info": "^5.4.4",
-    "react-native-easy-app": "^1.7.12",
+    "react-native-easy-app": "^1.7.14",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-reanimated": "^1.9.0",
     "react-native-root-toast": "3.0.0",

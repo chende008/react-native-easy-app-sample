@@ -6,7 +6,7 @@ import {XImage, XText, XView} from 'react-native-easy-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {showToast} from '../../Common/widgets/Loading';
 
-const imgUrl = 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3867329393,945558571&fm=26&gp=0.jpg';
+const imgUrl = 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=108036961,3500928712&fm=26&gp=0.jpg';
 
 export default class WidgetController extends PureComponent {
 

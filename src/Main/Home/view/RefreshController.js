@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Colors, Const} from '../../Common/storage/Const';
-import {XFlatList, XHttp, XImage, XText, XView} from 'react-native-easy-app';
+import {XFlatList, XHttp, XImage, XText, XView, RefreshStatus} from 'react-native-easy-app';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
 import {Api} from '../http/Api';
 import {showToast} from '../../Common/widgets/Loading';
@@ -25,7 +25,10 @@ export default class RefreshController extends PureComponent {
             <XFlatList data={dataList}
                        onRefresh={() => this.queryDataList(true)}
                        onLoadMore={() => this.queryDataList(false)}
-                       refreshStatus={{RefreshingData: {text: '刷新中，请稍候...'},}}
+                       refreshStatus={{
+                           RefreshingData: {text: '刷新中，请稍候...'},
+                           LoadingMoreData: {moreText: '加载更多数据，请稍候...'}
+                       }}
                        ListHeaderComponent={() => <XText style={styles.header} text={headerText}/>}
                        ref={refreshList => this.refreshList = refreshList}
                        renderItem={({item, index}) => this.renderItem(item, index)}/>
