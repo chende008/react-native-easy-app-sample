@@ -26,7 +26,7 @@ export default class RefreshController extends PureComponent {
                        onRefresh={() => this.queryDataList(true)}
                        onLoadMore={() => this.queryDataList(false)}
                        refreshStatus={{
-                           RefreshingData: {text: '刷新中，请稍候...'},
+                           RefreshingData: {text: '加载中，请稍候...'},
                            LoadingMoreData: {moreText: '加载更多数据，请稍候...'}
                        }}
                        ListHeaderComponent={() => <XText style={styles.header} text={headerText}/>}
