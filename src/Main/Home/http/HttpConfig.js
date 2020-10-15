@@ -5,8 +5,9 @@ import {isEmpty, selfOr} from '../../Common/utils/Utils';
 import {showToast} from '../../Common/widgets/Loading';
 import {ApiCredit, ApiO2O} from './Api';
 import AuthToken from './AuthToken';
-import {DebugManager} from "react-native-debug-tool";
-import {Notify} from "../../Common/events/Notify";
+import {DebugManager} from 'react-native-debug-tool';
+import {Notify} from '../../Common/events/Notify';
+import NetInfo from '@react-native-community/netinfo';
 
 /**
  * RN Http请求 库设置类
@@ -15,14 +16,15 @@ export default class HttpConfig {
 
     static initDemo() {
         XHttpConfig().initHttpLogOn(true)
-        // .initBaseUrl('https://www.baidu.com')
+            .initNetworkExceptionFunc(NetInfo, (msg, code) => true)
+            // .initBaseUrl('https://www.baidu.com')
             .initParseDataFunc((result, request, callback) => {
                 let {success, json, message, status, response} = result;
                 DebugManager.appendHttpLogs(request.params, response);
                 if (status === 503) {// token 过期
-                    Notify.TOKEN_EXPIRED.sendEvent({message})
+                    Notify.TOKEN_EXPIRED.sendEvent({message});
                 } else {
-                    callback(success, json, message, status, response)
+                    callback(success, json, message, status, response);
                 }
             });
     }
@@ -72,7 +74,7 @@ export default class HttpConfig {
             let {success, json, response, message, status} = result;
             AuthToken.parseTokenRes(response);//解析token
             if (status === 503) {//指定的Token过期标记
-                this.refreshToken(request, callback)
+                this.refreshToken(request, callback);
             } else {
                 let {successful, msg, code} = json;
                 callback(success && successful === 1, selfOr(json.data, {}), selfOr(msg, message), code);

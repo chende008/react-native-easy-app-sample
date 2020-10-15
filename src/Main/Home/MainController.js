@@ -31,12 +31,12 @@ export default class MainController extends PureComponent {
         </>;
     }
 
-    componentDidMount(): void {
+    componentDidMount() {
         this.listener = this.backListener();
         Notify.TOKEN_EXPIRED.register(this.tokenExpired);
     }
 
-    componentWillUnmount(): void {
+    componentWillUnmount() {
         this.listener && this.listener.remove();
         Notify.TOKEN_EXPIRED.unRegister(this.tokenExpired);
     }
