@@ -28,7 +28,7 @@ function ScreenList() {
     const {Navigator, Screen} = createStackNavigator();
     return <Navigator initialPage={LaunchController} headerMode='none'>
         <Screen name='Launch' component={LaunchController}/>
-        <Screen name='Main' component={MainController}/>
+        <Screen name='Main' component={MainController} options={{animationEnabled: false}}/>
         <Screen name='Http' component={HttpController}/>
         <Screen name='Storage' component={StorageController}/>
         <Screen name='Widget' component={WidgetController}/>
