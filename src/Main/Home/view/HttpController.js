@@ -1,15 +1,20 @@
 import React, {PureComponent} from 'react';
 import {ScrollView} from 'react-native';
 import {NavigationBar} from '../../Common/widgets/WidgetNavigation';
-import {XHttp, XText} from 'react-native-easy-app';
-import {RNItem} from '../../Common/widgets/WidgetDefault';
-import {Colors} from '../../Common/storage/Const';
-import {Api} from '../http/Api';
 import {showLoading, showToast} from '../../Common/widgets/Loading';
+import ImageCropPicker from 'react-native-image-crop-picker'
+import {RNItem} from '../../Common/widgets/WidgetDefault';
+import {XHttp, XText} from 'react-native-easy-app';
+import {Colors} from '../../Common/storage/Const';
+import {isEmpty} from "../../Common/utils/Utils";
+import {Api} from '../http/Api';
 
 /**
  * 其它接口请求，接口返回的非json数据结构（纯文本&XML数据）
  */
+
+const uploadUrl = 'http://img.sunmoon.zone/uploadFile';
+
 export default class HttpController extends PureComponent {
 
     constructor(props) {
@@ -27,6 +32,35 @@ export default class HttpController extends PureComponent {
             <RNItem text='获取图片列表：标准的json' onPress={() => this.animalImageList()}/>
             <RNItem text='同步请求成员列表：标准的json' onPress={() => this.queryMemberList()}/>
             <RNItem text='省份、城市记录数量：返回 XML' onPress={() => this.getCityAmount()}/>
+            <RNItem text='上传图片(需指定上传路径)' onPress={() => {
+                if (isEmpty(uploadUrl)) {
+                    showToast('请选择上传url');
+                    return
+                }
+                const options = {
+                    width: 500,
+                    height: 500,
+                    mediaType: 'photo',
+                    cropping: true
+                };
+                ImageCropPicker.openPicker(options).then(response => {
+                    console.log('response:', JSON.stringify(response));
+                    const fileObj = {
+                        uri: response.path,
+                        type: 'multipart/form-data',
+                        name: 'image.png'
+                    };
+                    XHttp().url(uploadUrl).param({file: fileObj}).formData().post((success, json, message) => {
+                        if (success) {
+                            showToast('上传成功!' + JSON.stringify(json))
+                        } else {
+                            showToast(message)
+                        }
+                    })
+                }).catch(error => {
+                    console.log(error)
+                })
+            }}/>
             <ScrollView>
                 <XText style={{fontSize: 12, color: Colors.text_lighter, padding: 10}} text={content}/>
             </ScrollView>
