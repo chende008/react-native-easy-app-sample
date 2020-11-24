@@ -37,19 +37,12 @@ export default class HttpController extends PureComponent {
                     showToast('请选择上传url');
                     return
                 }
-                const options = {
-                    width: 500,
-                    height: 500,
-                    mediaType: 'photo',
-                    cropping: true
-                };
+                const options = {width: 500, height: 500, mediaType: 'photo', cropping: true};
+
                 ImageCropPicker.openPicker(options).then(response => {
-                    console.log('response:', JSON.stringify(response));
-                    const fileObj = {
-                        uri: response.path,
-                        type: 'multipart/form-data',
-                        name: 'image.png'
-                    };
+
+                    const fileObj = {uri: response.path, type: 'multipart/form-data', name: 'image.png'};
+
                     XHttp().url(uploadUrl).param({file: fileObj}).formData().post((success, json, message) => {
                         if (success) {
                             showToast('上传成功!' + JSON.stringify(json))
