@@ -13,8 +13,6 @@ import {Api} from '../http/Api';
  * 其它接口请求，接口返回的非json数据结构（纯文本&XML数据）
  */
 
-const uploadUrl = '';
-
 export default class HttpController extends PureComponent {
 
     constructor(props) {
@@ -26,6 +24,7 @@ export default class HttpController extends PureComponent {
             mediaType: 'photo',
             cropping: true
         };
+        this.uploadUrl = ''
     }
 
     render() {
@@ -37,7 +36,7 @@ export default class HttpController extends PureComponent {
             <RNItem text='同步请求成员列表：标准的json' onPress={() => this.queryMemberList()}/>
             <RNItem text='省份、城市记录数量：返回 XML' onPress={() => this.getCityAmount()}/>
             <RNItem text='上传图片(需指定上传路径)' onPress={() => {
-                if (isEmpty(uploadUrl)) {
+                if (isEmpty(this.uploadUrl)) {
                     showToast('请设置上传目标接口：uploadUrl');
                     return
                 }
@@ -45,7 +44,7 @@ export default class HttpController extends PureComponent {
 
                     const fileObj = {uri: response.path, type: 'multipart/form-data', name: 'image.png'};
 
-                    XHttp().url(uploadUrl).formData()
+                    XHttp().url(this.uploadUrl).formData()
                         .param({file: fileObj})
                         .loadingFunc(loading => showLoading('上传中，请稍候...', loading, true))
                         .post((success, json, message) => {
