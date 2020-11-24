@@ -38,7 +38,7 @@ export default class HttpController extends PureComponent {
             <RNItem text='省份、城市记录数量：返回 XML' onPress={() => this.getCityAmount()}/>
             <RNItem text='上传图片(需指定上传路径)' onPress={() => {
                 if (isEmpty(uploadUrl)) {
-                    showToast('请选择上传url');
+                    showToast('请设置上传目标接口：uploadUrl');
                     return
                 }
                 ImageCropPicker.openPicker(this.options).then(response => {
