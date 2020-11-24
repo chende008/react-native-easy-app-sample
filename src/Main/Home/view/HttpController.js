@@ -13,7 +13,7 @@ import {Api} from '../http/Api';
  * 其它接口请求，接口返回的非json数据结构（纯文本&XML数据）
  */
 
-const uploadUrl = 'http://img.sunmoon.zone/uploadFile';
+const uploadUrl = '';
 
 export default class HttpController extends PureComponent {
 
