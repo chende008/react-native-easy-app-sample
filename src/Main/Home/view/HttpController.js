@@ -35,29 +35,7 @@ export default class HttpController extends PureComponent {
             <RNItem text='获取图片列表：标准的json' onPress={() => this.animalImageList()}/>
             <RNItem text='同步请求成员列表：标准的json' onPress={() => this.queryMemberList()}/>
             <RNItem text='省份、城市记录数量：返回 XML' onPress={() => this.getCityAmount()}/>
-            <RNItem text='上传图片(需指定上传路径)' onPress={() => {
-                if (isEmpty(this.uploadUrl)) {
-                    showToast('请设置上传目标接口：uploadUrl');
-                    return
-                }
-                ImageCropPicker.openPicker(this.options).then(response => {
-
-                    const fileObj = {uri: response.path, type: 'multipart/form-data', name: 'image.png'};
-
-                    XHttp().url(this.uploadUrl).formData()
-                        .param({file: fileObj})
-                        .loadingFunc(loading => showLoading('上传中，请稍候...', loading, true))
-                        .post((success, json, message) => {
-                            if (success) {
-                                showToast('上传成功!' + JSON.stringify(json))
-                            } else {
-                                showToast(message)
-                            }
-                        })
-                }).catch(error => {
-                    console.log(error)
-                })
-            }}/>
+            <RNItem text='上传图片(需指定上传路径)' onPress={() => this.uploadFile()}/>
             <ScrollView>
                 <XText style={{fontSize: 12, color: Colors.text_lighter, padding: 10}} text={content}/>
             </ScrollView>
@@ -121,6 +99,30 @@ export default class HttpController extends PureComponent {
             }
         });
     };
+
+    uploadFile = () => {
+        if (isEmpty(this.uploadUrl)) {
+            showToast('请设置上传目标接口：uploadUrl');
+            return
+        }
+        ImageCropPicker.openPicker(this.options).then(response => {
+
+            const fileObj = {uri: response.path, type: 'multipart/form-data', name: 'image.png'};
+
+            XHttp().url(this.uploadUrl).formData()
+                .param({file: fileObj})
+                .loadingFunc(loading => showLoading('上传中，请稍候...', loading, true))
+                .post((success, json, message) => {
+                    if (success) {
+                        showToast('上传成功!' + JSON.stringify(json))
+                    } else {
+                        showToast(message)
+                    }
+                })
+        }).catch(error => {
+            console.log(error)
+        })
+    }
 
 }
 
