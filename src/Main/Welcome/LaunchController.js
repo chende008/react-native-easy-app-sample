@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {LogBox} from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
-import {XStorage} from 'react-native-easy-app';
+import { XStorage, XWidget } from 'react-native-easy-app';
 import {RNStorage} from '../Common/storage/AppStorage';
 import XLog from '../Common/utils/XLog';
 
