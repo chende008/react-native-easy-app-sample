@@ -2,13 +2,13 @@ import React from 'react';
 import DeviceInfo from 'react-native-device-info';
 
 export const RNStorage = {//持久化数据列表
-    customerId: undefined,//客户ID
-    accessToken: undefined,//OAuth2.0 accessToken
-    refreshToken: undefined,//OAuth2.0 refreshToken
-    baseUrl: undefined,
-    str: undefined,//测试符串
-    json: undefined,//测试json
-    [DeviceInfo.getBundleId()]: undefined,
+    customerId: null,//客户ID
+    accessToken: null,//OAuth2.0 accessToken
+    refreshToken: null,//OAuth2.0 refreshToken
+    baseUrl: null,
+    str: null,//测试符串
+    json: null,//测试json
+    [DeviceInfo.getBundleId()]: null,
 };
 
 export const RNData = {//临时内存数据
