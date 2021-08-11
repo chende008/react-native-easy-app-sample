@@ -26,7 +26,7 @@ export default class MainController extends PureComponent {
             <RNItem text='Http请求' onPress={() => navigation.push('Http')}/>
             <RNItem text='数据存储' onPress={() => navigation.push('Storage')}/>
             <RNItem text='基础控件' onPress={() => navigation.push('Widget')}/>
-            <RNItem text='刷新列表' onPress={() => navigation.push('RefreshList')}/>
+            <RNItem text='刷新列表' onPress={() => navigation.push('XFlatList')}/>
             <RNItem text='WebView' onPress={() => navigation.push('WebView')}/>
         </>;
     }

@@ -32,7 +32,7 @@ function ScreenList() {
         <Screen name='Http' component={HttpController}/>
         <Screen name='Storage' component={StorageController}/>
         <Screen name='Widget' component={WidgetController}/>
-        <Screen name='RefreshList' component={RefreshController}/>
+        <Screen name='XFlatList' component={RefreshController}/>
         <Screen name='WebView' component={WebViewController}/>
     </Navigator>;
 }

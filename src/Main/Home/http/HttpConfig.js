@@ -15,7 +15,7 @@ import NetInfo from '@react-native-community/netinfo';
 export default class HttpConfig {
 
     static initDemo() {
-        XHttpConfig().initHttpLogOn(true)
+        XHttpConfig().initLogOn(true)
             .initNetworkExceptionFunc(NetInfo, (msg, code) => true)
             // .initBaseUrl('https://www.baidu.com')
             .initParseDataFunc((result, request, callback) => {

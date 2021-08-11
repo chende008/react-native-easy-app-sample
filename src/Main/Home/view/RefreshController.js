@@ -21,7 +21,7 @@ export default class RefreshController extends PureComponent {
     render() {
         let {dataList} = this.state;
         return <>
-            <NavigationBar title='RefreshList组件'/>
+            <NavigationBar title='XFlatList组件'/>
             <XFlatList data={dataList}
                        onRefresh={() => this.queryDataList(true)}
                        onLoadMore={() => this.queryDataList(false)}
