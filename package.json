@@ -25,7 +25,7 @@
     "events": "^3.2.0",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
-    "react-native": "0.64.0",
+    "react-native": "0.64.1",
     "react-native-debug-tool": "^1.1.6",
     "react-native-device-info": "^6.2.0",
     "react-native-easy-app": "^1.7.26",
